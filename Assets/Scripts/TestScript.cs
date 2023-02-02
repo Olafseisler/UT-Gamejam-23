@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class TestScript : MonoBehaviour
 {
-    [SerializeField] float testValue1 = 10f;
+    [SerializeField] float testValue21 = 10f;
     [SerializeField] private float testValue2 = 50f;
     
     // Start is called before the first frame update
