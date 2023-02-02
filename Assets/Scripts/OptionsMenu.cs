@@ -1,10 +1,15 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using JSAM;
+using UnityEngine.UI;
 public class OptionsMenu : MonoBehaviour
 {
     Resolution[] resolutions;
     public TMPro.TMP_Dropdown resolutionDropdown;
+    public Slider sfxSlider;
+    public Slider musicSlider;
+    public Toggle fullscreenToggle;
     private void Start()
     {
         resolutions = Screen.resolutions;
@@ -23,10 +28,22 @@ public class OptionsMenu : MonoBehaviour
         resolutionDropdown.AddOptions(options);
         resolutionDropdown.value = currentResolutionIndex;
         resolutionDropdown.RefreshShownValue();
+        sfxSlider.value = AudioManager.GetSoundVolume();
+        musicSlider.value = AudioManager.GetMusicVolume();
+        if (Screen.fullScreen)
+        {
+            fullscreenToggle.isOn = true;
+        }
     }
-    public void SetVolume (float volume)
+    public void SetSFXVolume (float volume)
     {
-        Debug.Log(volume);
+        PlayerPrefs.SetFloat("SFXVolume", volume);
+        AudioManager.SetSoundVolume(volume);
+    }
+    public void SetMusicVolume(float volume)
+    {
+        PlayerPrefs.SetFloat("MusicVolume", volume);
+        AudioManager.SetMusicVolume(volume);
     }
 
     public void SetFullscreen(bool isFullscreen)
