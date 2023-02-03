@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0d15ae218647a2d4f85e14306846c10c, type: 3}
   m_Name: click
   m_EditorClassIdentifier: 
-  file: {fileID: 8300000, guid: d79a0f5f6310db34590fded619afa966, type: 3}
+  file: {fileID: 8300000, guid: 92816181a0fbee84aa5e20bb1bfb415f, type: 3}
   files: []
   useLibrary: 0
   neverRepeat: 0
@@ -35,7 +35,7 @@ MonoBehaviour:
   bypassEffects: 0
   bypassListenerEffects: 0
   bypassReverbZones: 0
-  safeName: 
+  safeName: click
   chorusFilter:
     enabled: 0
     dryMix: 0
