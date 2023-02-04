@@ -61,8 +61,11 @@ public class Player_Walk : MonoBehaviour
     {
         //This is called when you input a direction on a valid input type, such as arrow keys or analogue stick
         //The value will read -1 when pressing left, 0 when idle, and 1 when pressing right.
-        Debug.Log("DirectionX: " + context.ReadValue<float>());
-        directionX = context.ReadValue<float>();
+        if (!PauseMenu.GameIsPaused)
+        {
+            //Debug.Log("DirectionX: " + context.ReadValue<float>());
+            directionX = context.ReadValue<float>();
+        }
     }
 
     // Update is called once per frame
