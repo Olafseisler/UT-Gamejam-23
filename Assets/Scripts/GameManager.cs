@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
 using UnityEngine;
-
+using JSAM;
 public enum GameState
 {
     Start,
@@ -39,9 +39,7 @@ public class GameManager : MonoBehaviour
         {
             case GameState.Start:
                 //TODO: Setup stuff for starting game
-                Debug.Log($"switched game state to start");
-                player.position = startPos.position;
-                OnGameStateChanged(GameState.Running);
+                HandleStart();
                 break;
             case GameState.Sacrifice:
                 //TODO: Open sacrifice animal dialog
@@ -69,11 +67,19 @@ public class GameManager : MonoBehaviour
         }
     }
     
-    void HandleStart(){}
+    void HandleStart(){
+        Debug.Log($"switched game state to start");
+        player.position = startPos.position;
+        AudioManager.PlayMusic(Music.chase_music);
+        OnGameStateChanged(GameState.Running);
+    }
     
     void HandleRunning(){}
     
-    void HandleSacrifice(){}
+    void HandleSacrifice(){
+        AudioManager.FadeMusicOut(1);
+        AudioManager.PlayMusic(Music.sacrifice_music);
+    }
     
     void HandleLoss(){}
     

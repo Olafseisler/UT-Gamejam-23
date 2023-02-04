@@ -1,9 +1,12 @@
 namespace JSAM {
     public enum Sounds {
-        click
+        click,
+        footsteps
     }
     public enum Music {
+        chase_music,
         credits_song,
-        menu_music
+        menu_music,
+        sacrifice_music
     }
 }
