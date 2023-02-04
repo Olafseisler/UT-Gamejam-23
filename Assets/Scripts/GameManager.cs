@@ -85,4 +85,9 @@ public class GameManager : MonoBehaviour
     
     void HandleWin(){}
     
+    public void SelectSacrifice(GameObject gameObject)
+    {
+        
+    }
+    
 }
