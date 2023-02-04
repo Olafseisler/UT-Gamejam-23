@@ -29,7 +29,7 @@ public class Player_Walk : MonoBehaviour
     [SerializeField, Range(0f, 100f)] [Tooltip("How fast to reach max speed when in mid-air")] public float maxAirAcceleration;
     [SerializeField, Range(0f, 100f)] [Tooltip("How fast to stop in mid-air when no direction is used")] public float maxAirDeceleration;
     [SerializeField, Range(0f, 100f)] [Tooltip("How fast to stop when changing direction when in mid-air")] public float maxAirTurnSpeed = 80f;
-
+    [SerializeField] private Animator playerAnimator;
     [Header("Current State")]
     public bool onGround;
     public bool pressingKey;
@@ -82,6 +82,8 @@ public class Player_Walk : MonoBehaviour
         {
             pressingKey = false;
         }
+        playerAnimator.SetBool("Running", pressingKey);
+
         desiredVelocity = new Vector2(directionX, 0f) * Mathf.Max(maxSpeed, 0f);
     }
 
