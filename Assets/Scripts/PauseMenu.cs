@@ -42,7 +42,17 @@ public class PauseMenu : MonoBehaviour
         }
         else
         {
-            DeactivateMenu();
+            Transform help = pauseMenuUI.transform.Find("HelpMenu");
+            if (help.gameObject.activeSelf)
+            {
+                GameIsPaused = !GameIsPaused; // dont actually unpause game
+                help.gameObject.SetActive(false);
+                pauseMenuUI.transform.Find("PauseMenuButtons").gameObject.SetActive(true);           
+            }
+            else
+            {
+                DeactivateMenu();
+            }
         }
     }
 
