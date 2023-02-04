@@ -20,7 +20,7 @@ public class PauseMenu : MonoBehaviour
     {
         menu = playerControls.Menu.Escape;
         menu.Enable();
-        menu.performed += Pause;
+        menu.performed += OnPauseButton;
     }
 
     private void OnDisable()
@@ -28,8 +28,12 @@ public class PauseMenu : MonoBehaviour
         menu.Disable();
     }
 
+    public void OnPauseButton(InputAction.CallbackContext context)
+    {
+        Pause();
+    }
 
-    public void Pause(InputAction.CallbackContext context)
+    public void Pause()
     {
         GameIsPaused = !GameIsPaused;
         if (GameIsPaused)

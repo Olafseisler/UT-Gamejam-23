@@ -70,15 +70,17 @@ public class Player_Jump : MonoBehaviour
         //This function is called when one of the jump buttons (like space or the A button) is pressed.
         //When we press the jump button, tell the script that we desire a jump.
         //Also, use the started and canceled contexts to know if we're currently holding the button
-        if (context.started)
-        {
-            desiredJump = true;
-            pressingJump = true;
-        }
+        if (!currentlyJumping && !PauseMenu.GameIsPaused) {
+            if (context.started)
+            {
+                desiredJump = true;
+                pressingJump = true;
+            }
 
-        if (context.canceled)
-        {
-            pressingJump = false;
+            if (context.canceled)
+            {
+                pressingJump = false;
+            }
         }
     }
 
