@@ -34,13 +34,7 @@ public class Credits : MonoBehaviour
     {
         AudioManager.PlayMusic(Music.credits_song);
     }
-    void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.Escape))
-        {
-            OnCreditsEnd();
-        }
-    }
+
     // Start is called before the first frame update
     public void OnCreditsEnd()
     {
