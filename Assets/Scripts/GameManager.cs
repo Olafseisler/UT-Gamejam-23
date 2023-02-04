@@ -23,7 +23,7 @@ public class GameManager : MonoBehaviour
 
     private GameState _currentState;
     private int _currentMoney = 10000;
-    
+    private int previous_song_pos = 0; // in samples
     // Start is called before the first frame update
     void Start()
     {
@@ -85,7 +85,8 @@ public class GameManager : MonoBehaviour
     }
     
     void HandleSacrifice(){
-        AudioManager.FadeMusicOut(1.0f);
+        previous_song_pos = AudioManager.GetMusicPlaybackPosition();
+        AudioManager.StopMusic();
         AudioManager.PlayMusic(Music.sacrifice_music);
         PauseGame();
         sacrificeDialog.SetActive(true);
@@ -134,6 +135,10 @@ public class GameManager : MonoBehaviour
     public void UnpauseGame()
     {
         Time.timeScale = 1.0f;
+        AudioManager.StopMusic();
         AudioManager.PlayMusic(Music.chase_music);
+        //AudioManager.PauseMusic();
+        AudioManager.SetMusicPlaybackPosition(previous_song_pos);
+        //AudioManager.ResumeMusic();
     }
 }

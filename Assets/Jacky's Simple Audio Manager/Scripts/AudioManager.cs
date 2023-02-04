@@ -733,6 +733,7 @@ namespace JSAM
             }
         }
 
+        public static void PauseMusicID(int id)
         /// <summary>
         /// Pauses any spatialized music. Will not pause regular music played using PlayMusic
         /// </summary>
@@ -883,6 +884,23 @@ namespace JSAM
             {
                 musicSources[1].time = Mathf.Clamp(time, 0, musicSources[1].clip.length);
             }
+        }
+
+        /// <summary>
+        /// Returns current Playback position in samples
+        /// </summary>
+        public int GetMusicPlaybackPositionInternal()
+        {
+            return musicSources[0].timeSamples;
+        }
+
+        /// <summary>
+        /// Returns current Playback position in samples
+        /// </summary>
+        public static int GetMusicPlaybackPosition()
+        {
+            if (!instance) return 0;
+            return instance.GetMusicPlaybackPositionInternal();
         }
 
         /// <summary>
