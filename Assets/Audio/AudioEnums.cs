@@ -4,7 +4,9 @@ namespace JSAM {
         footsteps
     }
     public enum Music {
+        chase_music,
         credits_song,
-        menu_music
+        menu_music,
+        sacrifice_music
     }
 }

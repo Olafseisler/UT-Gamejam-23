@@ -1416,8 +1416,10 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 838991de70e65b94e8ee74c06887cd06, type: 2}
   - {fileID: 11400000, guid: 9ea82372ad7e05e46840d7aa57290008, type: 2}
   audioFileMusicObjects:
+  - {fileID: 11400000, guid: 2299e7b183a4bf94ab114493db376a05, type: 2}
   - {fileID: 11400000, guid: e8705de63b60e9c4b91c303f49c30aca, type: 2}
   - {fileID: 11400000, guid: 64d818700b2c9a24b9b52db661da8b0f, type: 2}
+  - {fileID: 11400000, guid: e8fcf18fe5ae3594e97f8730f52965c6, type: 2}
   sceneSoundEnumName: JSAM.Sounds
   sceneMusicEnumName: JSAM.Music
   masterVolume: 0.2
