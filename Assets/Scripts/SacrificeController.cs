@@ -63,6 +63,8 @@ public class SacrificeController : MonoBehaviour
         dialogue_avatar.sprite = sacrifice.artwork;
         name_text.text = sacrifice.sacrifice_name;
     }
+
+    // shit code but i am too tired
     IEnumerator Dialogue(Sacrifice sacrifice)
     {
         character_to_monke();

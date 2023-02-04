@@ -35,6 +35,11 @@ public class PauseMenu : MonoBehaviour
 
     public void Pause()
     {
+        if (Time.timeScale == 0f && !GameIsPaused)
+        {
+            Debug.Log("Game already paused, not able to pause again.");
+            return;
+        }
         GameIsPaused = !GameIsPaused;
         if (GameIsPaused)
         {
