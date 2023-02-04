@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
-
+using JSAM;
 public class Player_Walk : MonoBehaviour
 {
     [Header("Components")]
@@ -102,7 +102,7 @@ public class Player_Walk : MonoBehaviour
         turnSpeed = onGround ? maxTurnSpeed : maxAirTurnSpeed;
 
         if (pressingKey)
-        {
+        {                 
             //If the sign (i.e. positive or negative) of our input direction doesn't match our movement, it means we're turning around and so should use the turn speed stat.
             if (Mathf.Sign(directionX) != Mathf.Sign(velocity.x))
             {
@@ -119,13 +119,24 @@ public class Player_Walk : MonoBehaviour
             //And if we're not pressing a direction at all, use the deceleration stat
             maxSpeedChange = deceleration * Time.deltaTime;
         }
-
         //Move our velocity towards the desired velocity, at the rate of the number calculated above
         velocity.x = Mathf.MoveTowards(velocity.x, desiredVelocity.x, maxSpeedChange);
-
+        if (velocity.x != 0)
+        {
+            if (!AudioManager.IsSoundPlaying(Sounds.footsteps))
+            {
+                AudioManager.PlaySound(Sounds.footsteps);
+            }
+        }
+        else
+        {
+            if (AudioManager.IsSoundPlaying(Sounds.footsteps))
+            {
+                AudioManager.StopSound(Sounds.footsteps);
+            }
+        }
         //Update the Rigidbody with this new velocity
         body.velocity = velocity;
-
     }
 
 }
