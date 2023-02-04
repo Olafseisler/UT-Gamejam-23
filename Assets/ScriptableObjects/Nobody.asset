@@ -10,13 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: adca177c74a2a0845945677fb2873e71, type: 3}
-  m_Name: Frog
+  m_Name: Nobody
   m_EditorClassIdentifier: 
-  sacrifice_name: Frog
-  cost: 1000
-  artwork: {fileID: 21300000, guid: 2b82aae6ba7c14772a3ea565d99b622c, type: 3}
-  slowdown: 10
-  power: 10
+  sacrifice_name: Monkey
+  cost: 0
+  artwork: {fileID: 21300000, guid: ab06d340dc3cd0649b2d0de11fd825e3, type: 3}
+  slowdown: 0
+  power: 0
   dialogue:
-  - "You can go stretch your legs some. It\u2019s a great day to work out!"
-  - Wow, that sounds great! See you tomorrow, Sir!
+  - Heh, I can survive on my own.
+  - Or can I...?

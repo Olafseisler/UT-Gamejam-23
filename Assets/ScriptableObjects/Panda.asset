@@ -10,13 +10,14 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: adca177c74a2a0845945677fb2873e71, type: 3}
-  m_Name: Frog
+  m_Name: Panda
   m_EditorClassIdentifier: 
-  sacrifice_name: Frog
-  cost: 1000
-  artwork: {fileID: 21300000, guid: 2b82aae6ba7c14772a3ea565d99b622c, type: 3}
+  sacrifice_name: Panda
+  cost: 2000
+  artwork: {fileID: 21300000, guid: 505c16b8d05d94f4bbd16385fad22fdf, type: 3}
   slowdown: 10
-  power: 10
+  power: 30
   dialogue:
-  - "You can go stretch your legs some. It\u2019s a great day to work out!"
-  - Wow, that sounds great! See you tomorrow, Sir!
+  - Oh no! Someone is tearing down a bamboo forest way over there! You should do
+    something!!
+  - Noooo!! Thank you for telling me. I will go save my home!

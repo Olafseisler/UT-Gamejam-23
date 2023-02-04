@@ -12,5 +12,5 @@ public class Sacrifice : ScriptableObject
     public Sprite artwork;
     public float slowdown;
     public int power;
-
+    public string[] dialogue;
 }

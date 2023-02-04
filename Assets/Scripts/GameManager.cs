@@ -117,7 +117,8 @@ public class GameManager : MonoBehaviour
 
         Debug.Log("Saved you this time! Money left:" + _currentMoney);
         player.position = player.position + new Vector3(5f, 0, 0);
-        OnGameStateChanged(GameState.Running);
+        sacrificeDialog.SetActive(false);
+        //OnGameStateChanged(GameState.Running);
     }
 
     public int GetMoney()

@@ -17,3 +17,6 @@ MonoBehaviour:
   artwork: {fileID: 21300000, guid: b741cf77a9aa049dab58b18c59c9c027, type: 3}
   slowdown: 50
   power: 50
+  dialogue:
+  - Your son is stuck in the mud back there. Go help him out!
+  - Thank you, Sir! You are truly a caring man.
