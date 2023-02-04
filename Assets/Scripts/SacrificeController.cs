@@ -70,8 +70,10 @@ public class SacrificeController : MonoBehaviour
         character_to_monke();
         message_text.text = sacrifice.dialogue[0];
         Debug.Log("entering the funny");
+        yield return new WaitForSecondsRealtime(3f); // TODO CHANGE BACK TO 3F
         character_to_chosen(sacrifice);
         message_text.text = sacrifice.dialogue[1];
+        yield return new WaitForSecondsRealtime(3f);
         dialogueBoxParent.gameObject.SetActive(false);
         gameManager.OnGameStateChanged(GameState.Running);
     }

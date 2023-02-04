@@ -733,7 +733,6 @@ namespace JSAM
             }
         }
 
-        public static void PauseMusicID(int id)
         /// <summary>
         /// Pauses any spatialized music. Will not pause regular music played using PlayMusic
         /// </summary>
