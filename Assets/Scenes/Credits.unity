@@ -437,24 +437,25 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Timo654
+  m_text: 'Timo Jairus
 
+    Olaf Seisler
+
+    Mihkel Tiks
 
 
     Rengoku Teien
 
 
 
-    John Doe
+    Veronika
+    Kukk
+
+    Helen Laikmaa
 
 
+    Helen Laikmaa
 
-    Jane Doe
-
-
-
-    Temp
-    Name
 
 
     Caveras
@@ -462,7 +463,10 @@ MonoBehaviour:
 
     ketrub
 
-    Game Maker''s Toolkit
+    Kent
+
+    Game
+    Maker''s Toolkit
 
     You, for playing!'
   m_isRightToLeft: 0
@@ -599,7 +603,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Programmer
+  m_text: 'Programming
+
 
 
 
@@ -607,22 +612,19 @@ MonoBehaviour:
 
 
 
-    Lorem Ipsum
+    Art
 
 
 
-    Lorem Ipsum
+    Writing
 
-
-
-    Lorem
-    Ipsum
 
 
     Fonts
 
 
-    Special Thanks'
+    Special
+    Thanks'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 1820de1b04ef2ff4783751bbe2efaddc, type: 2}
   m_sharedMaterial: {fileID: 3256160330220235195, guid: 1820de1b04ef2ff4783751bbe2efaddc, type: 2}
