@@ -61,7 +61,7 @@ public class OpeningMenu : MonoBehaviour
     {
         Time.timeScale = 1f;
         GameIsPaused = !GameIsPaused;
-        SceneManager.LoadScene(0);
+        SceneManager.LoadScene("MainMenu");
     }
 
     public void QuitGame()

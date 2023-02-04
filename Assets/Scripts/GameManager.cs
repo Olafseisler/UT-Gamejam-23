@@ -96,7 +96,7 @@ public class GameManager : MonoBehaviour
     {
         Debug.Log("Your money ran out! Lost game!");
         Time.timeScale = 1.0f;
-        SceneManager.LoadScene(0);
+        SceneManager.LoadScene("MainMenu");
     }
     
     void HandleWin(){}
@@ -118,6 +118,11 @@ public class GameManager : MonoBehaviour
         Debug.Log("Saved you this time! Money left:" + _currentMoney);
         player.position = player.position + new Vector3(5f, 0, 0);
         OnGameStateChanged(GameState.Running);
+    }
+
+    public int GetMoney()
+    {
+        return _currentMoney;
     }
 
     public void PauseGame()

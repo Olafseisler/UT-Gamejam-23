@@ -7,10 +7,12 @@ public class MoneyBar : MonoBehaviour
 {
     public int money = 100000;
     [SerializeField] TMP_Text text;
+    [SerializeField] private GameManager gameManager;
 
     // Update is called once per frame
     void Update()
     {
+        money = gameManager.GetMoney();
         text.SetText("" + money);
     }
 }
