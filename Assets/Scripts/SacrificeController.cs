@@ -11,7 +11,7 @@ public class SacrificeController : MonoBehaviour
     [SerializeField] private Transform sacrificeSlotsParent;
     [SerializeField] private Sacrifice[] sacrifices;
     [SerializeField] private Transform[] sacrificeUISlots;
-    
+    [SerializeField] private Transform dialogueBoxParent;
     // Start is called before the first frame update
     void Start()
     {
@@ -35,10 +35,17 @@ public class SacrificeController : MonoBehaviour
     
     public void SelectSacrifice(SacrificeSlot sacrifice)
     {
-        
+
+        Sacrifice sacrificed = sacrifice.GetSacrifice();
         if (sacrifice.GetSacrifice() != null)
             gameManager.RemoveMoney(sacrifice.GetSacrifice().cost);
-        
+
+        dialogueBoxParent.GetChild(0).Find("AvatarPicture").gameObject.GetComponent<Image>().sprite = sacrificed.artwork;
+        dialogueBoxParent.GetChild(0).Find("Name").gameObject.GetComponent<TMP_Text>().text = sacrificed.sacrifice_name;
+        dialogueBoxParent.GetChild(0).Find("Message").gameObject.GetComponent<TMP_Text>().text = "hello i am a funny sacrifice!!!";
+        dialogueBoxParent.gameObject.SetActive(true);
+
+
     }
     
 }
