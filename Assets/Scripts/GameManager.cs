@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using UnityEngine;
 using JSAM;
+using UnityEngine.SceneManagement;
+
 public enum GameState
 {
     Start,
@@ -17,8 +19,10 @@ public class GameManager : MonoBehaviour
     [SerializeField] private Transform player;
     [SerializeField] private Transform startPos;
     [SerializeField] private Transform endPos;
+    [SerializeField] private GameObject sacrificeDialog;
 
     private GameState _currentState;
+    private int _currentMoney = 10000;
     
     // Start is called before the first frame update
     void Start()
@@ -32,7 +36,7 @@ public class GameManager : MonoBehaviour
         
     }
 
-    void OnGameStateChanged(GameState newState)
+    public void OnGameStateChanged(GameState newState)
     {
         _currentState = newState;
         switch (_currentState)
@@ -44,22 +48,22 @@ public class GameManager : MonoBehaviour
             case GameState.Sacrifice:
                 //TODO: Open sacrifice animal dialog
                 Debug.Log($"switched game state to sacrifice");
-
+                HandleSacrifice();
                 break;
             case GameState.Running:
                 //TODO: Handle running animation etc.
                 Debug.Log($"switched game state to running");
-
+                HandleRunning();
                 break;
             case GameState.Lose:
                 //TODO: Handle loss
+                HandleLoss();
                 Debug.Log($"switched game state to loss");
-
                 break;
             case GameState.Win:
                 //TODO: Handle win
-                        Debug.Log($"switched game state to win");
-
+                HandleWin();
+                Debug.Log($"switched game state to win");
                 break;
             default:
                 Debug.Log("Unknown state passed to state manager");
@@ -73,16 +77,57 @@ public class GameManager : MonoBehaviour
         AudioManager.PlayMusic(Music.chase_music);
         OnGameStateChanged(GameState.Running);
     }
-    
-    void HandleRunning(){}
-    
-    void HandleSacrifice(){
-        AudioManager.FadeMusicOut(1);
-        AudioManager.PlayMusic(Music.sacrifice_music);
+
+    void HandleRunning()
+    {
+        UnpauseGame();
+        
     }
     
-    void HandleLoss(){}
+    void HandleSacrifice(){
+        AudioManager.FadeMusicOut(1.0f);
+        AudioManager.PlayMusic(Music.sacrifice_music);
+        PauseGame();
+        sacrificeDialog.SetActive(true);
+        
+    }
+
+    void HandleLoss()
+    {
+        Debug.Log("Your money ran out! Lost game!");
+        Time.timeScale = 1.0f;
+        SceneManager.LoadScene(0);
+    }
     
     void HandleWin(){}
-    
+
+
+    public void AddMoney(int moneyToAdd)
+    {
+        _currentMoney += moneyToAdd;
+    }
+
+    public void RemoveMoney(int moneyToRemove)
+    {
+        _currentMoney -= moneyToRemove;
+        if (_currentMoney <= 0)
+        {
+            OnGameStateChanged(GameState.Lose);
+        }
+
+        Debug.Log("Saved you this time! Money left:" + _currentMoney);
+        player.position = player.position + new Vector3(5f, 0, 0);
+        OnGameStateChanged(GameState.Running);
+    }
+
+    public void PauseGame()
+    {
+        Time.timeScale = 0f;
+    }
+
+    public void UnpauseGame()
+    {
+        Time.timeScale = 1.0f;
+        AudioManager.PlayMusic(Music.chase_music);
+    }
 }

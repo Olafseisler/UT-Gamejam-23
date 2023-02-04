@@ -11,6 +11,7 @@ public class FollowPlayer : MonoBehaviour
     public GameObject[] followers;
 
     private float distance;
+    
     // Start is called before the first frame update
     void Start()
     {
@@ -24,13 +25,13 @@ public class FollowPlayer : MonoBehaviour
         {
             distance = Vector2.Distance(follower.transform.position, toFollow.transform.position);
             Vector2 direction = toFollow.transform.position - follower.transform.position;
-            Vector2 hover = new Vector2(follower.transform.position.x, follower.transform.position.y + Mathf.Sin(Time.time));
+            Vector2 hover = new Vector2(follower.transform.position.x, follower.transform.position.y + Mathf.Sin(8f * Time.time));
             follower.transform.position =
                 Vector2.MoveTowards(follower.transform.position, hover, speed * Time.deltaTime/10);
             if (distance > 2)
             {
                 follower.transform.position =
-                    Vector2.MoveTowards(follower.transform.position, toFollow.transform.position   , speed * Time.deltaTime);
+                    Vector2.MoveTowards(follower.transform.position, new Vector2(toFollow.transform.position.x, transform.position.y)   , speed * Time.deltaTime);
             }
 
             toFollow = follower;

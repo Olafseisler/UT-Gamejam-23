@@ -1,9 +1,12 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class HuntPlayer : MonoBehaviour
 {
+    [SerializeField] private GameManager _gameManager;
+    
     public GameObject player;
     public float speed;
     private float distance;
@@ -22,4 +25,16 @@ public class HuntPlayer : MonoBehaviour
             
         transform.position = Vector2.MoveTowards(this.transform.position, player.transform.position, speed * Time.deltaTime);
     }
+
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.collider.CompareTag("Player"))
+        {
+            _gameManager.OnGameStateChanged(GameState.Sacrifice);
+        }
+        
+        
+    }
+    
 }
