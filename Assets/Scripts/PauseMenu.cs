@@ -13,6 +13,7 @@ public class PauseMenu : MonoBehaviour
     private InputAction menu;
     private EventSystem EVRef;
     [SerializeField] private GameObject selectedUIElement;
+    [SerializeField] private GameObject exitButton; // to disable in webgl
     private void Awake()
     {
         playerControls = new PlayerControls();
@@ -70,7 +71,11 @@ public class PauseMenu : MonoBehaviour
 
     void ActivateMenu()
     {
-        
+        if (Application.platform == RuntimePlatform.WebGLPlayer)
+        {
+            exitButton.SetActive(false);
+        }
+
         EVRef.SetSelectedGameObject(selectedUIElement);   // set current selected button
         pauseMenuUI.SetActive(true);
         Time.timeScale = 0f;

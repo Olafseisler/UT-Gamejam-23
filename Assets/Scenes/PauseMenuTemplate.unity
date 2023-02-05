@@ -664,7 +664,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &319282277
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1536,7 +1536,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &799419050
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3818,7 +3818,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0e1a3c8e7919d384e9e0dc7bd438b21c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  distance: 100
+  SAFE_DISTANCE: 40
+  hunter: {fileID: 0}
 --- !u!114 &2012576868
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4014,7 +4015,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pauseMenuUI: {fileID: 2047564582}
-  selectedUIElement: {fileID: 0}
+  selectedUIElement: {fileID: 309785946}
+  exitButton: {fileID: 1174892952}
 --- !u!1 &2047564582
 GameObject:
   m_ObjectHideFlags: 0

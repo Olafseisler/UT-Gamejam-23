@@ -9,4 +9,8 @@ public class AudioWrapper : MonoBehaviour
         AudioManager.PlaySound(Sounds.click);
     }
 
+    public void DeathSound()
+    {
+        AudioManager.PlaySound(Sounds.death);
+    }
 }
