@@ -7,12 +7,17 @@ using JSAM;
 public class MainMenu : MonoBehaviour
 {
     public GameObject fadeOut;
+    [SerializeField] private GameObject exitButton; // to disable in webgl
 
     void Start()
     {
         AudioManager.SetMusicVolume(PlayerPrefs.GetFloat("MusicVolume", 0.2f));
         AudioManager.SetSoundVolume(PlayerPrefs.GetFloat("SFXVolume", 0.5f));
         AudioManager.PlayMusic(Music.menu_music);
+        if (Application.platform == RuntimePlatform.WebGLPlayer)
+        {
+            exitButton.SetActive(false);
+        }
     }
 
     public void PlayGame ()
