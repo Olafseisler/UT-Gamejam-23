@@ -11,6 +11,7 @@ public class GoodEndController : MonoBehaviour
     [SerializeField] TMP_Text moneyBarText;
     int score;
     [SerializeField] int trueEndThreshold;
+    public GameObject fadeOut;
     // Start is called before the first frame update
     void Start()
     {
@@ -29,7 +30,9 @@ public class GoodEndController : MonoBehaviour
 
     IEnumerator Victory()
     {
-        yield return new WaitForSecondsRealtime(6f);
+        yield return new WaitForSecondsRealtime(5f);
+        fadeOut.SetActive(true);
+        yield return new WaitForSecondsRealtime(1f);
         AudioManager.StopMusic();
         SceneManager.LoadScene("Credits");
     }

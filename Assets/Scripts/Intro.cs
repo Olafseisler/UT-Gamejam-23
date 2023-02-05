@@ -8,6 +8,7 @@ public class Intro : MonoBehaviour
 {
     [SerializeField] ParticleSystem gold_ps;
     [SerializeField] ParticleSystem cash_ps;
+    public GameObject fadeOut;
     private void Start()
     {
         
@@ -23,7 +24,9 @@ public class Intro : MonoBehaviour
         gold_ps.Play();
         cash_ps.Play();
         AudioManager.PlaySound(Sounds.intro_boom);
-        yield return new WaitForSeconds(5);
+        yield return new WaitForSeconds(3);
+        fadeOut.SetActive(true);
+        yield return new WaitForSeconds(2);
         SceneManager.LoadScene("MainMenu");
     }
 }
