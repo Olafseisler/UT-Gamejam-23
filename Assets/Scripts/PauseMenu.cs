@@ -3,19 +3,26 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.InputSystem;
+using UnityEngine.EventSystems;
+
 public class PauseMenu : MonoBehaviour
 {
     public static bool GameIsPaused = false;
     [SerializeField] private GameObject pauseMenuUI;
     private PlayerControls playerControls;
     private InputAction menu;
-
+    private EventSystem EVRef;
+    [SerializeField] private GameObject selectedUIElement;
     private void Awake()
     {
         playerControls = new PlayerControls();
+        EVRef = EventSystem.current; // get the current event system
     }
 
-
+    private void Start()
+    {
+        
+    }
     private void OnEnable()
     {
         menu = playerControls.Menu.Escape;
@@ -63,6 +70,8 @@ public class PauseMenu : MonoBehaviour
 
     void ActivateMenu()
     {
+        
+        EVRef.SetSelectedGameObject(selectedUIElement);   // set current selected button
         pauseMenuUI.SetActive(true);
         Time.timeScale = 0f;
     }

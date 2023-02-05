@@ -4,6 +4,7 @@ using System.ComponentModel;
 using UnityEngine;
 using JSAM;
 using UnityEngine.SceneManagement;
+using UnityEngine.EventSystems;
 
 public enum GameState
 {
@@ -24,10 +25,13 @@ public class GameManager : MonoBehaviour
     private GameState _currentState;
     private int _currentMoney = 10000;
     private int previous_song_pos = 0; // in samples
+    private EventSystem EVRef;
     // Start is called before the first frame update
     void Start()
     {
+        EVRef = EventSystem.current; // get the current event system
         OnGameStateChanged(GameState.Start);
+
     }
 
     // Update is called once per frame
@@ -90,7 +94,10 @@ public class GameManager : MonoBehaviour
         AudioManager.PlayMusic(Music.sacrifice_music);
         PauseGame();
         sacrificeDialog.SetActive(true);
-        
+     
+
+  
+        EVRef.SetSelectedGameObject(sacrificeDialog.transform.GetChild(0).transform.GetChild(0).gameObject);   // set current selected button
     }
 
     void HandleLoss()
