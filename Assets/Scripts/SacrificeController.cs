@@ -43,8 +43,12 @@ public class SacrificeController : MonoBehaviour
     
     public void SelectSacrifice(SacrificeSlot sacrificeSlot)
     {
-
+        
         Sacrifice sacrificed = sacrificeSlot.GetSacrifice();
+        if (sacrificed.sacrifice_name.Equals("Nobody"))
+        {
+            gameManager.OnGameStateChanged(GameState.Lose);
+        }
         if (sacrificeSlot.GetSacrifice() != null)
             gameManager.HandleCommitSacrifice(sacrificed.cost);
         selectedSlowDown = sacrificed.slowdown;
