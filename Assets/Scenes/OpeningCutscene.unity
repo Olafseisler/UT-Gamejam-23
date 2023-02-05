@@ -4121,7 +4121,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   audioFileObjects:
   - {fileID: 11400000, guid: 838991de70e65b94e8ee74c06887cd06, type: 2}
+  - {fileID: 11400000, guid: 234e98a88d5f19e4c9121e105e0bb077, type: 2}
   - {fileID: 11400000, guid: 9ea82372ad7e05e46840d7aa57290008, type: 2}
+  - {fileID: 11400000, guid: e4d52bab21456de4d9aa9ebec381c1db, type: 2}
   audioFileMusicObjects:
   - {fileID: 11400000, guid: 2299e7b183a4bf94ab114493db376a05, type: 2}
   - {fileID: 11400000, guid: e8705de63b60e9c4b91c303f49c30aca, type: 2}
