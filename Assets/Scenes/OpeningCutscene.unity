@@ -1164,7 +1164,7 @@ RectTransform:
   m_GameObject: {fileID: 539966240}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.5, y: 0.5, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1147954480}
@@ -1173,7 +1173,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -200, y: -50}
+  m_AnchoredPosition: {x: -100, y: -25}
   m_SizeDelta: {x: 400, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &539966242
@@ -1480,7 +1480,7 @@ RectTransform:
   m_GameObject: {fileID: 599444258}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.5, y: 0.5, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 92316295}
@@ -1488,8 +1488,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 77.91611}
-  m_SizeDelta: {x: 0, y: -210.1473}
+  m_AnchoredPosition: {x: -2.5804443, y: 12}
+  m_SizeDelta: {x: -32.6847, y: -327.1243}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &599444260
 MonoBehaviour:
@@ -1511,12 +1511,12 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "Money \u2013 the root of all evil. We all love it.\nNot everyone likes
-    your methods, so for whatever reason the God of Justice is after you. Your objective
-    is to run away from Them by sacrificing workers. However, sacrifices don't come
-    for free. Try to escape, while saving as much of your wealth as possible.\r\nThere
-    is math and luck involved.\r\n\r\nSome may think you are evil, but what do the
-    poor know anyway?\r\n"
+  m_text: "Money \u2013 the root of all evil. You have it and it is glorious. \nNot
+    everyone likes your methods though and now the God of Justice is after you. Your
+    objective is to run away from Them by sacrificing workers. However, sacrifices
+    don't come for free. Try to escape, while saving as much of your wealth as possible.\nThere
+    is math and luck involved.\n\nSome may think you are evil, but what do the poor
+    know anyway?"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 1820de1b04ef2ff4783751bbe2efaddc, type: 2}
   m_sharedMaterial: {fileID: 2100000, guid: 11ec9c32e16524e46bb9a5d1d7727e67, type: 2}
@@ -2164,7 +2164,7 @@ RectTransform:
   m_GameObject: {fileID: 856315425}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.5, y: 0.5, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1568343319}
@@ -2173,7 +2173,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -269}
+  m_AnchoredPosition: {x: 0, y: -161}
   m_SizeDelta: {x: 159.7989, y: 64.4432}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &856315427
@@ -3456,7 +3456,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_UiScaleMode: 0
+  m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
   m_ReferenceResolution: {x: 800, y: 600}
@@ -3908,7 +3908,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_UiScaleMode: 0
+  m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
   m_ReferenceResolution: {x: 800, y: 600}

@@ -154,9 +154,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   audioFileObjects:
   - {fileID: 11400000, guid: 838991de70e65b94e8ee74c06887cd06, type: 2}
+  - {fileID: 11400000, guid: 9ea82372ad7e05e46840d7aa57290008, type: 2}
+  - {fileID: 11400000, guid: e4d52bab21456de4d9aa9ebec381c1db, type: 2}
   audioFileMusicObjects:
+  - {fileID: 11400000, guid: 2299e7b183a4bf94ab114493db376a05, type: 2}
   - {fileID: 11400000, guid: e8705de63b60e9c4b91c303f49c30aca, type: 2}
   - {fileID: 11400000, guid: 64d818700b2c9a24b9b52db661da8b0f, type: 2}
+  - {fileID: 11400000, guid: e8fcf18fe5ae3594e97f8730f52965c6, type: 2}
   sceneSoundEnumName: JSAM.Sounds
   sceneMusicEnumName: JSAM.Music
   masterVolume: 1
@@ -325,7 +329,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_UiScaleMode: 0
+  m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
   m_ReferenceResolution: {x: 800, y: 600}
@@ -444,21 +448,92 @@ MonoBehaviour:
     Mihkel Tiks
 
 
-    Rengoku Teien
 
 
 
-    Veronika
-    Kukk
-
-    Helen Laikmaa
 
 
-    Helen Laikmaa
+
+
+
+
+
+    Rengoku
+    Teien
+
+    nerve_k2works
+
+
+
+
+
+
+
+
+
+
+
+
+
+    Veronika Kukk
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    Helen
+    Laikmaa
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    Timo Jairus
+
+
+
+
+
+
+
+
+
+
+
 
 
 
     Caveras
+
+
+
+
+
+
+
+
+
+
+
+
 
 
     ketrub
@@ -608,7 +683,28 @@ MonoBehaviour:
 
 
 
+
+
+
+
+
+
+
+
+
+
     Music
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -616,11 +712,60 @@ MonoBehaviour:
 
 
 
+
+
+
+
+
+
+
+
+
+
+
     Writing
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+    Menus
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     Fonts
+
+
+
+
+
+
+
+
+
+
+
+
 
 
     Special
@@ -738,7 +883,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -858}
+  m_AnchoredPosition: {x: 0, y: -520}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!95 &1801976712
