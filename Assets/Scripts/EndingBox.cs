@@ -10,8 +10,8 @@ public class EndingBox : MonoBehaviour
     
     private void OnTriggerEnter2D(Collider2D col)
     {
-        // gameManager.OnGameStateChanged(GameState.Win);
+        gameManager.OnGameStateChanged(GameState.Win);
         Debug.Log("Entered win area ");
-        SceneManager.LoadScene(5);
+        // SceneManager.LoadScene(5);
     }
 }
