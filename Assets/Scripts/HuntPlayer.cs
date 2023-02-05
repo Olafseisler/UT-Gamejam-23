@@ -26,6 +26,10 @@ public class HuntPlayer : MonoBehaviour
         transform.position = Vector2.MoveTowards(this.transform.position, player.transform.position, speed * Time.deltaTime);
     }
 
+    public float GetDistanceFromPlayer()
+    {
+        return distance;
+    }
 
     private void OnCollisionEnter2D(Collision2D collision)
     {

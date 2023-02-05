@@ -6,6 +6,8 @@ using JSAM;
 
 public class MainMenu : MonoBehaviour
 {
+    public GameObject fadeOut;
+
     void Start()
     {
         AudioManager.SetMusicVolume(PlayerPrefs.GetFloat("MusicVolume", 0.2f));
@@ -16,13 +18,22 @@ public class MainMenu : MonoBehaviour
     public void PlayGame ()
     {
         AudioManager.FadeMusicOut(1);
-        SceneManager.LoadScene("PlatformerTest");
+        fadeOut.SetActive(true);
+        StartCoroutine(DelaySceneLoad(2, "PlatformerTest"));
     }
     public void OpenCredits ()
     {
         AudioManager.FadeMusicOut(1);
-        SceneManager.LoadScene("Credits");
+        fadeOut.SetActive(true);
+        StartCoroutine(DelaySceneLoad(2, "Credits"));
     }
+    IEnumerator DelaySceneLoad(float delay, string scene)
+    {
+        AudioManager.FadeMusicOut(delay);
+        yield return new WaitForSeconds(delay);
+        SceneManager.LoadScene(scene);
+    }
+
     public void QuitGame()
     {
         Debug.Log("QUIT!");
