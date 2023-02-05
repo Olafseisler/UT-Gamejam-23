@@ -77,6 +77,7 @@ public class GameManager : MonoBehaviour
     
     void HandleStart(){
         Debug.Log($"switched game state to start");
+        PlayerPrefs.SetInt("Score", 0);
         player.position = startPos.position;
         AudioManager.PlayMusic(Music.chase_music);
         OnGameStateChanged(GameState.Running);
@@ -107,7 +108,9 @@ public class GameManager : MonoBehaviour
         SceneManager.LoadScene("BadEnd");
     }
     
-    void HandleWin(){}
+    void HandleWin(){
+        PlayerPrefs.SetInt("Score", _currentMoney);
+    }
 
 
     public void AddMoney(int moneyToAdd)

@@ -9,11 +9,12 @@ public class GoodEndController : MonoBehaviour
     [SerializeField] GameObject playerGood;
     [SerializeField] GameObject playerOK;
     [SerializeField] TMP_Text moneyBarText;
-    [SerializeField] int score;
+    int score;
     [SerializeField] int trueEndThreshold;
     // Start is called before the first frame update
     void Start()
     {
+        score = PlayerPrefs.GetInt("Score", 0);
         if (score >= trueEndThreshold)
         {
             playerGood.gameObject.SetActive(true);
