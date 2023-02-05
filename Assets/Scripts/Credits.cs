@@ -9,6 +9,8 @@ public class Credits : MonoBehaviour
 {
     private PlayerControls playerControls;
     private InputAction menu;
+    public GameObject fadeOut;
+
     private void Awake()
     {
         playerControls = new PlayerControls();
@@ -43,8 +45,9 @@ public class Credits : MonoBehaviour
 
     IEnumerator CreditsEnd()
     {
-        AudioManager.FadeMusicOut(1);
-        yield return new WaitForSeconds(1);
+        fadeOut.SetActive(true);
+        AudioManager.FadeMusicOut(5);
+        yield return new WaitForSeconds(6);
         SceneManager.LoadScene("MainMenu");
     }
 }
