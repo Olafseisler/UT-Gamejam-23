@@ -22,6 +22,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private Transform endPos;
     [SerializeField] private GameObject sacrificeDialog;
     [SerializeField] public GameObject fadeOut;
+    [SerializeField] public HuntPlayer enemyScript;
     private GameState _currentState;
     private int _currentMoney = 10000;
     private int previous_song_pos = 0; // in samples
@@ -126,7 +127,7 @@ public class GameManager : MonoBehaviour
         _currentMoney += moneyToAdd;
     }
 
-    public void RemoveMoney(int moneyToRemove)
+    public void HandleCommitSacrifice(int moneyToRemove)
     {
         _currentMoney -= moneyToRemove;
         if (_currentMoney <= 0)
@@ -135,9 +136,15 @@ public class GameManager : MonoBehaviour
         }
 
         Debug.Log("Saved you this time! Money left:" + _currentMoney);
-        player.position = player.position + new Vector3(5f, 0, 0);
+        // player.position = player.position + new Vector3(5f, 0, 0);
+        
         sacrificeDialog.SetActive(false);
         //OnGameStateChanged(GameState.Running);
+    }
+
+    public void handleEnemySlowdown(float slowDown)
+    {
+        enemyScript.slowEnemyDown(slowDown);
     }
 
     public int GetMoney()
