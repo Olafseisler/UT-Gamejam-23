@@ -5,8 +5,11 @@ using UnityEngine.SceneManagement;
 using UnityEngine.InputSystem;
 public class OpeningMenu : MonoBehaviour
 {
-    public static bool GameIsPaused = false;
+    public static bool GameIsPaused = true;
     [SerializeField] private GameObject openingMenuUI;
+    [SerializeField] private GameObject impostor_monke;
+    [SerializeField] private GameObject collision_box; // the box we lock monke in
+    [SerializeField] private SpriteRenderer sp_renderer;
     private PlayerControls playerControls;
     private InputAction menu;
 
@@ -26,6 +29,7 @@ public class OpeningMenu : MonoBehaviour
     private void OnDisable()
     {
         menu.Disable();
+        Time.timeScale = 1f;
     }
 
     public void OnPauseButton(InputAction.CallbackContext context)
@@ -36,6 +40,9 @@ public class OpeningMenu : MonoBehaviour
     public void Pause()
     {
         GameIsPaused = !GameIsPaused;
+        sp_renderer.enabled = true;
+        collision_box.SetActive(false);
+        impostor_monke.SetActive(false);
         if (GameIsPaused)
         {
             ActivateMenu();
