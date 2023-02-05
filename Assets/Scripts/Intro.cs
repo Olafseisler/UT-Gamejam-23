@@ -23,7 +23,7 @@ public class Intro : MonoBehaviour
         gold_ps.Play();
         cash_ps.Play();
         AudioManager.PlaySound(Sounds.intro_boom);
-        yield return new WaitForSeconds(2);
-        SceneManager.LoadScene(0);
+        yield return new WaitForSeconds(5);
+        SceneManager.LoadScene("MainMenu");
     }
 }

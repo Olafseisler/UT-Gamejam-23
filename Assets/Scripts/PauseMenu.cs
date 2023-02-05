@@ -35,6 +35,11 @@ public class PauseMenu : MonoBehaviour
 
     public void Pause()
     {
+        if (Time.timeScale == 0f && !GameIsPaused)
+        {
+            Debug.Log("Game already paused, not able to pause again.");
+            return;
+        }
         GameIsPaused = !GameIsPaused;
         if (GameIsPaused)
         {
@@ -42,7 +47,17 @@ public class PauseMenu : MonoBehaviour
         }
         else
         {
-            DeactivateMenu();
+            Transform help = pauseMenuUI.transform.Find("HelpMenu");
+            if (help.gameObject.activeSelf)
+            {
+                GameIsPaused = !GameIsPaused; // dont actually unpause game
+                help.gameObject.SetActive(false);
+                pauseMenuUI.transform.Find("PauseMenuButtons").gameObject.SetActive(true);           
+            }
+            else
+            {
+                DeactivateMenu();
+            }
         }
     }
 
@@ -61,7 +76,7 @@ public class PauseMenu : MonoBehaviour
     {
         Time.timeScale = 1f;
         GameIsPaused = !GameIsPaused;
-        SceneManager.LoadScene(0);
+        SceneManager.LoadScene("MainMenu");
     }
 
     public void QuitGame()

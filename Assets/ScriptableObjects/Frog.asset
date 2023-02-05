@@ -17,3 +17,6 @@ MonoBehaviour:
   artwork: {fileID: 21300000, guid: 2b82aae6ba7c14772a3ea565d99b622c, type: 3}
   slowdown: 10
   power: 10
+  dialogue:
+  - "You can go stretch your legs some. It\u2019s a great day to work out!"
+  - Wow, that sounds great! See you tomorrow, Sir!

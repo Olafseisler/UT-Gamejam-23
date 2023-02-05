@@ -45,6 +45,6 @@ public class Credits : MonoBehaviour
     {
         AudioManager.FadeMusicOut(1);
         yield return new WaitForSeconds(1);
-        SceneManager.LoadScene(0);
+        SceneManager.LoadScene("MainMenu");
     }
 }

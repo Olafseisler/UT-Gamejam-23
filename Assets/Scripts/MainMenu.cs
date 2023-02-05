@@ -16,12 +16,12 @@ public class MainMenu : MonoBehaviour
     public void PlayGame ()
     {
         AudioManager.FadeMusicOut(1);
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        SceneManager.LoadScene("PlatformerTest");
     }
     public void OpenCredits ()
     {
         AudioManager.FadeMusicOut(1);
-        SceneManager.LoadScene(2);
+        SceneManager.LoadScene("Credits");
     }
     public void QuitGame()
     {

@@ -886,6 +886,23 @@ namespace JSAM
         }
 
         /// <summary>
+        /// Returns current Playback position in samples
+        /// </summary>
+        public int GetMusicPlaybackPositionInternal()
+        {
+            return musicSources[0].timeSamples;
+        }
+
+        /// <summary>
+        /// Returns current Playback position in samples
+        /// </summary>
+        public static int GetMusicPlaybackPosition()
+        {
+            if (!instance) return 0;
+            return instance.GetMusicPlaybackPositionInternal();
+        }
+
+        /// <summary>
         /// Move the current music's playing position to the specified time
         /// </summary>
         /// <param name="samples">Time in samples, must be between 0 and the current track's sample length</param>
