@@ -1411,6 +1411,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pauseMenuUI: {fileID: 1624029927}
   selectedUIElement: {fileID: 481170942}
+  exitButton: {fileID: 1667550885}
 --- !u!224 &448818791
 RectTransform:
   m_ObjectHideFlags: 0

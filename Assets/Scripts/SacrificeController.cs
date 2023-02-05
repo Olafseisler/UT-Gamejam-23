@@ -89,6 +89,7 @@ public class SacrificeController : MonoBehaviour
         message_text.text = sacrifice.dialogue[1];
         yield return new WaitForSecondsRealtime(4f);
         dialogue_avatar.gameObject.transform.GetChild(0).gameObject.SetActive(true);
+        message_text.text = "RIP IN PEACE";
         yield return new WaitForSecondsRealtime(1f);
         dialogueBoxParent.gameObject.SetActive(false);
         gameManager.handleEnemySlowdown(selectedSlowDown);
