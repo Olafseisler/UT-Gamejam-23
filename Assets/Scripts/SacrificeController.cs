@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 using Unity.VisualScripting;
-
+using JSAM;
 public class SacrificeController : MonoBehaviour
 {
     [SerializeField] private GameManager gameManager;
@@ -90,6 +90,7 @@ public class SacrificeController : MonoBehaviour
         yield return new WaitForSecondsRealtime(4f);
         dialogue_avatar.gameObject.transform.GetChild(0).gameObject.SetActive(true);
         message_text.text = "RIP IN PEACE";
+        AudioManager.PlaySound(Sounds.death);
         yield return new WaitForSecondsRealtime(1f);
         dialogueBoxParent.gameObject.SetActive(false);
         gameManager.handleEnemySlowdown(selectedSlowDown);
