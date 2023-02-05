@@ -21,7 +21,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private Transform startPos;
     [SerializeField] private Transform endPos;
     [SerializeField] private GameObject sacrificeDialog;
-    //[SerializeField] public GameObject fadeOut; TODO - enable
+    [SerializeField] public GameObject fadeOut;
     private GameState _currentState;
     private int _currentMoney = 10000;
     private int previous_song_pos = 0; // in samples
@@ -115,7 +115,7 @@ public class GameManager : MonoBehaviour
 
     IEnumerator DelaySceneLoad(float delay, string scene)
     {
-        //fadeOut.SetActive(true);
+        fadeOut.SetActive(true);
         AudioManager.FadeMusicOut(delay);
         yield return new WaitForSeconds(delay);
         SceneManager.LoadScene(scene);

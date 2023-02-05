@@ -45,10 +45,14 @@ public class SacrificeController : MonoBehaviour
         if (sacrificeSlot.GetSacrifice() != null)
             gameManager.RemoveMoney(sacrificeSlot.GetSacrifice().cost);
 
-        // i know this code is shit
-        dialogueBoxParent.gameObject.SetActive(true);
-        //gameManager.OnGameStateChanged(GameState.Running);
-        StartCoroutine(Dialogue(sacrificed));
+        if (gameManager.GetMoney() > 0)
+        {
+            // i know this code is shit
+            dialogueBoxParent.gameObject.SetActive(true);
+            //gameManager.OnGameStateChanged(GameState.Running);
+            StartCoroutine(Dialogue(sacrificed));
+        }
+ 
 
     }
 
