@@ -97,7 +97,7 @@ public class GameManager : MonoBehaviour
     {
         Debug.Log("Your money ran out! Lost game!");
         Time.timeScale = 1.0f;
-        SceneManager.LoadScene("MainMenu");
+        SceneManager.LoadScene("BadEnd");
     }
     
     void HandleWin(){}

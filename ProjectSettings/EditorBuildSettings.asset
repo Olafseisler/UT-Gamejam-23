@@ -18,6 +18,12 @@ EditorBuildSettings:
     path: Assets/Scenes/PlatformerTest.unity
     guid: 514139de6c58edd41b291b1ba2624b04
   - enabled: 1
+    path: Assets/Scenes/BadEnd.unity
+    guid: 4aeeb05b8adaafe47a807c7f9c4e8dba
+  - enabled: 1
+    path: Assets/Scenes/GoodEnd.unity
+    guid: 0ca2d620ad787ad4a857145614de65b3
+  - enabled: 1
     path: Assets/Scenes/Credits.unity
     guid: ba74f24043381794784e61a66d5c33ea
   - enabled: 0
