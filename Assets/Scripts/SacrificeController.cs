@@ -16,6 +16,9 @@ public class SacrificeController : MonoBehaviour
     private Image dialogue_avatar;
     private TMP_Text name_text;
     private TMP_Text message_text;
+
+    private float selectedSlowDown;
+    
     // Start is called before the first frame update
     void Start()
     {
@@ -40,11 +43,16 @@ public class SacrificeController : MonoBehaviour
     
     public void SelectSacrifice(SacrificeSlot sacrificeSlot)
     {
-
+        
         Sacrifice sacrificed = sacrificeSlot.GetSacrifice();
+        if (sacrificed.sacrifice_name.Equals("Nobody"))
+        {
+            gameManager.OnGameStateChanged(GameState.Lose);
+        }
         if (sacrificeSlot.GetSacrifice() != null)
-            gameManager.RemoveMoney(sacrificeSlot.GetSacrifice().cost);
-
+            gameManager.HandleCommitSacrifice(sacrificed.cost);
+        selectedSlowDown = sacrificed.slowdown;
+        
         if (gameManager.GetMoney() > 0)
         {
             // i know this code is shit
@@ -83,7 +91,7 @@ public class SacrificeController : MonoBehaviour
         dialogue_avatar.gameObject.transform.GetChild(0).gameObject.SetActive(true);
         yield return new WaitForSecondsRealtime(1f);
         dialogueBoxParent.gameObject.SetActive(false);
-        
+        gameManager.handleEnemySlowdown(selectedSlowDown);
         gameManager.OnGameStateChanged(GameState.Running);
     }
 

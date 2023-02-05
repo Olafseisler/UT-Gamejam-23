@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: adca177c74a2a0845945677fb2873e71, type: 3}
   m_Name: Nobody
   m_EditorClassIdentifier: 
-  sacrifice_name: Monkey
+  sacrifice_name: Nobody
   cost: 0
   artwork: {fileID: 21300000, guid: f4766a5c125a341d7bb105d9beb79db2, type: 3}
   slowdown: 0
