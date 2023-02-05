@@ -38,12 +38,12 @@ public class SacrificeController : MonoBehaviour
         message_text = dialogueBoxParent.GetChild(0).Find("Message").gameObject.GetComponent<TMP_Text>();
     }
     
-    public void SelectSacrifice(SacrificeSlot sacrifice)
+    public void SelectSacrifice(SacrificeSlot sacrificeSlot)
     {
 
-        Sacrifice sacrificed = sacrifice.GetSacrifice();
-        if (sacrifice.GetSacrifice() != null)
-            gameManager.RemoveMoney(sacrifice.GetSacrifice().cost);
+        Sacrifice sacrificed = sacrificeSlot.GetSacrifice();
+        if (sacrificeSlot.GetSacrifice() != null)
+            gameManager.RemoveMoney(sacrificeSlot.GetSacrifice().cost);
 
         // i know this code is shit
         dialogueBoxParent.gameObject.SetActive(true);
