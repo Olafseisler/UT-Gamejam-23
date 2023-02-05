@@ -6,17 +6,26 @@ using UnityEngine.AI;
 
 public class FollowPlayer : MonoBehaviour
 {
+    [SerializeField] private GameObject dustCloud;
+    
     public GameObject player;
     public float speed;
     public GameObject[] followers;
 
     private float distance;
-    
+    private Vector3 dustcloudDefaultScale;
+
     // Start is called before the first frame update
     void Start()
     {
+        dustcloudDefaultScale = dustCloud.transform.localScale;
     }
 
+    void UpdateDustCloud()
+    {
+        dustCloud.SetActive(player.transform.GetComponent<Rigidbody2D>().velocity.magnitude > 0);
+    }
+    
     // Update is called once per frame
     void Update()
     {
@@ -36,6 +45,6 @@ public class FollowPlayer : MonoBehaviour
 
             toFollow = follower;
         }
-        
+        UpdateDustCloud();
     }
 }

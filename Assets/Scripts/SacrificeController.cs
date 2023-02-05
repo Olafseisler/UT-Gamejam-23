@@ -59,12 +59,14 @@ public class SacrificeController : MonoBehaviour
     void character_to_monke()
     {
         dialogue_avatar.sprite = monke_sprite;
+        dialogue_avatar.gameObject.transform.GetChild(0).gameObject.SetActive(false);
         name_text.text = "Monkey";
     }
 
     void character_to_chosen(Sacrifice sacrifice)
     {
         dialogue_avatar.sprite = sacrifice.artwork;
+        dialogue_avatar.gameObject.transform.GetChild(0).gameObject.SetActive(false);
         name_text.text = sacrifice.sacrifice_name;
     }
 
@@ -77,8 +79,11 @@ public class SacrificeController : MonoBehaviour
         yield return new WaitForSecondsRealtime(5f);
         character_to_chosen(sacrifice);
         message_text.text = sacrifice.dialogue[1];
-        yield return new WaitForSecondsRealtime(5f);
+        yield return new WaitForSecondsRealtime(4f);
+        dialogue_avatar.gameObject.transform.GetChild(0).gameObject.SetActive(true);
+        yield return new WaitForSecondsRealtime(1f);
         dialogueBoxParent.gameObject.SetActive(false);
+        
         gameManager.OnGameStateChanged(GameState.Running);
     }
 
