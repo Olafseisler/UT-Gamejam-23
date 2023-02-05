@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bfb8002b44af6934a9ae327c8311d458, type: 3}
   m_Name: credits_song
   m_EditorClassIdentifier: 
-  file: {fileID: 8300000, guid: 43bf68328658991458eab699d2f40632, type: 3}
+  file: {fileID: 8300000, guid: 0b1e94841d661c0429dccad3274f2a7b, type: 3}
   files: []
   useLibrary: 0
   neverRepeat: 0
@@ -35,7 +35,7 @@ MonoBehaviour:
   bypassEffects: 0
   bypassListenerEffects: 0
   bypassReverbZones: 0
-  safeName: 
+  safeName: credits_song
   chorusFilter:
     enabled: 0
     dryMix: 0

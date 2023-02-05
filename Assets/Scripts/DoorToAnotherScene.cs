@@ -3,17 +3,23 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-
+using JSAM;
 public class DoorToAnotherScene : MonoBehaviour
 {
-    [SerializeField] private int nextSceneIndex = 1;
+    public GameObject fadeOut;
 
     private void OnTriggerEnter2D(Collider2D col)
     {
         if (col.gameObject.CompareTag("Player"))
         {
-            Debug.Log($"Loading Scene with index {nextSceneIndex.ToString()}");
-            SceneManager.LoadScene(nextSceneIndex);
+            StartCoroutine(DelaySceneLoad(2f, "PlatformerTest"));
         }
+    }
+
+    IEnumerator DelaySceneLoad(float delay, string scene)
+    {
+        AudioManager.FadeMusicOut(delay);
+        yield return new WaitForSeconds(delay);
+        SceneManager.LoadScene(scene);
     }
 }
