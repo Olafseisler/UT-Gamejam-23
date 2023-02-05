@@ -19,7 +19,7 @@ public class MainMenu : MonoBehaviour
     {
         AudioManager.FadeMusicOut(1);
         fadeOut.SetActive(true);
-        StartCoroutine(DelaySceneLoad(2, "OpeningMenu"));
+        StartCoroutine(DelaySceneLoad(2, "OpeningCutscene"));
     }
     public void OpenCredits ()
     {
