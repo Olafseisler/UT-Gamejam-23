@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sacrifice_name: Panda
   cost: 2000
-  artwork: {fileID: 21300000, guid: 505c16b8d05d94f4bbd16385fad22fdf, type: 3}
+  artwork: {fileID: 21300000, guid: f092d925ab4de4b5da4d7bfcff764062, type: 3}
   slowdown: 10
   power: 30
   dialogue:
