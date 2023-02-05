@@ -114,7 +114,8 @@ public class GameManager : MonoBehaviour
     void HandleWin()
     {
         PlayerPrefs.SetInt("Score", _currentMoney);
-        StartCoroutine(DelaySceneLoad(2, "GoodEnd"));
+        SceneManager.LoadScene(5);
+        // StartCoroutine(DelaySceneLoad(2, "GoodEnd"));
     }
 
     IEnumerator DelaySceneLoad(float delay, string scene)
