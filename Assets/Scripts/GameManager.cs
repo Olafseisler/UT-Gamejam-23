@@ -110,6 +110,7 @@ public class GameManager : MonoBehaviour
     
     void HandleWin(){
         PlayerPrefs.SetInt("Score", _currentMoney);
+        SceneManager.LoadScene("GoodEnd");
     }
 
 
