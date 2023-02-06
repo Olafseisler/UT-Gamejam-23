@@ -1046,7 +1046,7 @@ MonoBehaviour:
   playerGood: {fileID: 636291029}
   playerOK: {fileID: 110171634}
   moneyBarText: {fileID: 150943291}
-  trueEndThreshold: 500000
+  trueEndThreshold: 5000
   fadeOut: {fileID: 1745100439}
 --- !u!4 &1576240916
 Transform:
