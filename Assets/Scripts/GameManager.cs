@@ -24,6 +24,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] public GameObject fadeOut;
     [SerializeField] public HuntPlayer enemyScript;
     [SerializeField] private BloodParticle playerBlood;
+    [SerializeField] private GameObject MobileUI;
     private GameState _currentState;
     private int _currentMoney = 10000;
     private int previous_song_pos = 0; // in samples
@@ -33,6 +34,11 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        if (Application.isMobilePlatform)
+        {
+            Debug.Log("mobile!");
+            MobileUI.SetActive(true);
+        }
         EVRef = EventSystem.current; // get the current event system
         OnGameStateChanged(GameState.Start);
     }

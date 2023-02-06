@@ -11,12 +11,18 @@ public class OpeningMenu : MonoBehaviour
     [SerializeField] private GameObject impostor_monke;
     [SerializeField] private GameObject player;
     [SerializeField] private SpriteRenderer sp_renderer;
+    [SerializeField] private GameObject MobileUI; 
     private PlayerControls playerControls;
     private InputAction menu;
 
     private void Awake()
     {
         playerControls = new PlayerControls();
+        if (Application.isMobilePlatform)
+        {
+            Debug.Log("mobile!");
+            MobileUI.SetActive(true);
+        }
     }
 
 
