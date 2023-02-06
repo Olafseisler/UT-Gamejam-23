@@ -99,11 +99,21 @@ public class GameManager : MonoBehaviour
 
     void HandleRunning()
     {
+        if (Application.isMobilePlatform)
+        {
+            Debug.Log("mobile!");
+            MobileUI.SetActive(true);
+        }
         UnpauseGame();
     }
 
     void HandleSacrifice()
     {
+        if (Application.isMobilePlatform)
+        {
+            Debug.Log("mobile!");
+            MobileUI.SetActive(false);
+        }
         previous_song_pos = AudioManager.GetMusicPlaybackPosition();
         AudioManager.StopMusic();
         AudioManager.PlayMusic(Music.sacrifice_music);

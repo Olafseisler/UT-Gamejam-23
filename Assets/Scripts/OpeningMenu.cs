@@ -18,11 +18,6 @@ public class OpeningMenu : MonoBehaviour
     private void Awake()
     {
         playerControls = new PlayerControls();
-        if (Application.isMobilePlatform)
-        {
-            Debug.Log("mobile!");
-            MobileUI.SetActive(true);
-        }
     }
 
 
@@ -70,6 +65,11 @@ public class OpeningMenu : MonoBehaviour
         openingMenuUI.SetActive(false);
         helpUI.SetActive(false);
         Time.timeScale = 1f;
+        if (Application.isMobilePlatform)
+        {
+            Debug.Log("mobile!");
+            MobileUI.SetActive(true);
+        }
     }
     public void LoadMenu()
     {

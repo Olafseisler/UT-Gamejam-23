@@ -6,6 +6,8 @@ public class DistanceBar : MonoBehaviour
 {
     [SerializeField] private float SAFE_DISTANCE = 40f;
     [SerializeField] private HuntPlayer hunter;
+    Color green = new Color32(93, 184, 39, 255);
+    Color red = new Color32(235, 30, 30, 255);
     private float distance;
     private Image distanceBar;
     // Start is called before the first frame update
@@ -22,11 +24,11 @@ public class DistanceBar : MonoBehaviour
         distanceBar.fillAmount = distance / SAFE_DISTANCE;
         if (distanceBar.fillAmount > 0.5)
         {
-            distanceBar.color = Color.green;
+            distanceBar.color = green;
         }
         else
         {
-            distanceBar.color = Color.red;
+            distanceBar.color = red;
         }
     }
 }
