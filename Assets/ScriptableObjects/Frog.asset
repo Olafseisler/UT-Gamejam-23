@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Frog
   m_EditorClassIdentifier: 
   sacrifice_name: Frog
-  cost: 1000
+  cost: 850
   artwork: {fileID: 21300000, guid: 2b82aae6ba7c14772a3ea565d99b622c, type: 3}
   slowdown: 10
   power: 10

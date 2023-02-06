@@ -13,9 +13,9 @@ MonoBehaviour:
   m_Name: Cat
   m_EditorClassIdentifier: 
   sacrifice_name: Cat
-  cost: 1000
+  cost: 750
   artwork: {fileID: 21300000, guid: 6188540d64a6c496d80d96c6858461a1, type: 3}
-  slowdown: 10
+  slowdown: 5
   power: 10
   dialogue:
   - There is a great sale for balls of yarn back there. You should get one for your
