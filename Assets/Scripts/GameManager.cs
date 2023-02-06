@@ -23,6 +23,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private GameObject sacrificeDialog;
     [SerializeField] public GameObject fadeOut;
     [SerializeField] public HuntPlayer enemyScript;
+    [SerializeField] private BloodParticle playerBlood;
     private GameState _currentState;
     private int _currentMoney = 10000;
     private int previous_song_pos = 0; // in samples
@@ -107,15 +108,16 @@ public class GameManager : MonoBehaviour
     {
         Debug.Log("Your money ran out! Lost game!");
         Time.timeScale = 1.0f;
-        SceneManager.LoadScene("BadEnd");
-        // StartCoroutine(DelaySceneLoad(2, "BadEnd"));
+        //SceneManager.LoadScene("BadEnd");
+        playerBlood.ShowBlood();
+        StartCoroutine(DelaySceneLoad(2, "BadEnd"));
     }
 
     void HandleWin()
     {
         PlayerPrefs.SetInt("Score", _currentMoney);
-        SceneManager.LoadScene(5);
-        // StartCoroutine(DelaySceneLoad(2, "GoodEnd"));
+        //SceneManager.LoadScene(5);
+        StartCoroutine(DelaySceneLoad(2, "GoodEnd"));
     }
 
     IEnumerator DelaySceneLoad(float delay, string scene)
