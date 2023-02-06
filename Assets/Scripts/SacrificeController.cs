@@ -13,6 +13,7 @@ public class SacrificeController : MonoBehaviour
     [SerializeField] private Transform[] sacrificeUISlots;
     [SerializeField] private Transform dialogueBoxParent;
     [SerializeField] private Sprite monke_sprite;
+    [SerializeField] private BloodParticle followerBlood;
     private Image dialogue_avatar;
     private TMP_Text name_text;
     private TMP_Text message_text;
@@ -48,6 +49,7 @@ public class SacrificeController : MonoBehaviour
         if (sacrificed.sacrifice_name.Equals("Nobody"))
         {
             gameManager.OnGameStateChanged(GameState.Lose);
+            return;
         }
         if (sacrificeSlot.GetSacrifice() != null)
             gameManager.HandleCommitSacrifice(sacrificed.cost);
@@ -82,18 +84,17 @@ public class SacrificeController : MonoBehaviour
     IEnumerator Dialogue(Sacrifice sacrifice)
     {
         character_to_monke();
-        message_text.text = sacrifice.dialogue[0];
-        Debug.Log("entering the funny");
+        message_text.text = sacrifice.dialogue[0];;
         yield return new WaitForSecondsRealtime(5f);
         character_to_chosen(sacrifice);
         message_text.text = sacrifice.dialogue[1];
         yield return new WaitForSecondsRealtime(4f);
         dialogue_avatar.gameObject.transform.GetChild(0).gameObject.SetActive(true);
+        gameManager.handleEnemySlowdown(selectedSlowDown);
         message_text.text = "RIP IN PEACE";
-        AudioManager.PlaySound(Sounds.death);
+        followerBlood.ShowBlood();
         yield return new WaitForSecondsRealtime(1f);
         dialogueBoxParent.gameObject.SetActive(false);
-        gameManager.handleEnemySlowdown(selectedSlowDown);
         gameManager.OnGameStateChanged(GameState.Running);
     }
 

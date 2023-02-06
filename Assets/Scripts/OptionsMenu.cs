@@ -10,8 +10,13 @@ public class OptionsMenu : MonoBehaviour
     public Slider sfxSlider;
     public Slider musicSlider;
     public Toggle fullscreenToggle;
+    [SerializeField] GameObject resolutionOption;
     private void Start()
     {
+        if (Application.platform == RuntimePlatform.WebGLPlayer)
+        {
+            resolutionOption.SetActive(false);
+        }
         resolutions = Screen.resolutions;
         resolutionDropdown.ClearOptions();
         List<string> options = new();

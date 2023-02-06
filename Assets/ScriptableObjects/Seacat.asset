@@ -13,9 +13,9 @@ MonoBehaviour:
   m_Name: Seacat
   m_EditorClassIdentifier: 
   sacrifice_name: Seagull
-  cost: 750
+  cost: 1004
   artwork: {fileID: 21300000, guid: 9d2d12b10c2974f27a532200f0af9bd0, type: 3}
-  slowdown: 10
+  slowdown: 19
   power: 5
   dialogue:
   - You like fries, right? Go buy some, you deserve it for working so hard!

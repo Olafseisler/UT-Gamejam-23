@@ -23,6 +23,8 @@ public class GameManager : MonoBehaviour
     [SerializeField] private GameObject sacrificeDialog;
     [SerializeField] public GameObject fadeOut;
     [SerializeField] public HuntPlayer enemyScript;
+    [SerializeField] private BloodParticle playerBlood;
+    [SerializeField] private GameObject MobileUI;
     private GameState _currentState;
     private int _currentMoney = 10000;
     private int previous_song_pos = 0; // in samples
@@ -32,6 +34,11 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        if (Application.isMobilePlatform)
+        {
+            Debug.Log("mobile!");
+            MobileUI.SetActive(true);
+        }
         EVRef = EventSystem.current; // get the current event system
         OnGameStateChanged(GameState.Start);
     }
@@ -43,6 +50,11 @@ public class GameManager : MonoBehaviour
 
     public void OnGameStateChanged(GameState newState)
     {
+        if (_currentState.Equals(GameState.Win) || _currentState.Equals(GameState.Lose))
+        {
+            Debug.Log("Tried to change state after hitting an ending, ignoring.");
+            return;
+        }
         _currentState = newState;
         switch (_currentState)
         {
@@ -87,11 +99,21 @@ public class GameManager : MonoBehaviour
 
     void HandleRunning()
     {
+        if (Application.isMobilePlatform)
+        {
+            Debug.Log("mobile!");
+            MobileUI.SetActive(true);
+        }
         UnpauseGame();
     }
 
     void HandleSacrifice()
     {
+        if (Application.isMobilePlatform)
+        {
+            Debug.Log("mobile!");
+            MobileUI.SetActive(false);
+        }
         previous_song_pos = AudioManager.GetMusicPlaybackPosition();
         AudioManager.StopMusic();
         AudioManager.PlayMusic(Music.sacrifice_music);
@@ -107,15 +129,16 @@ public class GameManager : MonoBehaviour
     {
         Debug.Log("Your money ran out! Lost game!");
         Time.timeScale = 1.0f;
-        SceneManager.LoadScene("BadEnd");
-        // StartCoroutine(DelaySceneLoad(2, "BadEnd"));
+        //SceneManager.LoadScene("BadEnd");
+        playerBlood.ShowBlood();
+        StartCoroutine(DelaySceneLoad(2, "BadEnd"));
     }
 
     void HandleWin()
     {
         PlayerPrefs.SetInt("Score", _currentMoney);
-        SceneManager.LoadScene(5);
-        // StartCoroutine(DelaySceneLoad(2, "GoodEnd"));
+        //SceneManager.LoadScene(5);
+        StartCoroutine(DelaySceneLoad(2, "GoodEnd"));
     }
 
     IEnumerator DelaySceneLoad(float delay, string scene)

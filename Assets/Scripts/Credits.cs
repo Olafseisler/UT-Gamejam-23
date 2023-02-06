@@ -8,7 +8,8 @@ using JSAM;
 public class Credits : MonoBehaviour
 {
     private PlayerControls playerControls;
-    private InputAction menu;
+    private InputAction escape;
+    private InputAction interact;
     public GameObject fadeOut;
 
     private void Awake()
@@ -18,13 +19,17 @@ public class Credits : MonoBehaviour
 
     private void OnEnable()
     {
-        menu = playerControls.Menu.Escape;
-        menu.Enable();
-        menu.performed += Pause;
+        escape = playerControls.Menu.Escape;
+        escape.Enable();
+        interact = playerControls.Menu.Interact;
+        interact.Enable();
+        escape.performed += Pause;
+        interact.performed += Pause;
     }
     private void OnDisable()
     {
-        menu.Disable();
+        escape.Disable();
+        interact.Disable();
     }
 
     public void Pause(InputAction.CallbackContext context) // we're just going to skip credits when esc is pressed
