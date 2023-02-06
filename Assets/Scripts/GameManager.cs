@@ -44,6 +44,11 @@ public class GameManager : MonoBehaviour
 
     public void OnGameStateChanged(GameState newState)
     {
+        if (_currentState.Equals(GameState.Win) || _currentState.Equals(GameState.Lose))
+        {
+            Debug.Log("Tried to change state after hitting an ending, ignoring.");
+            return;
+        }
         _currentState = newState;
         switch (_currentState)
         {

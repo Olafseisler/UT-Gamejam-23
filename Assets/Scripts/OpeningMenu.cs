@@ -7,6 +7,7 @@ public class OpeningMenu : MonoBehaviour
 {
     public static bool GameIsPaused = true;
     [SerializeField] private GameObject openingMenuUI;
+    [SerializeField] private GameObject helpUI;
     [SerializeField] private GameObject impostor_monke;
     [SerializeField] private GameObject player;
     [SerializeField] private SpriteRenderer sp_renderer;
@@ -48,7 +49,7 @@ public class OpeningMenu : MonoBehaviour
         }
         else
         {
-                DeactivateMenu();
+            DeactivateMenu();
         }
     }
 
@@ -61,6 +62,7 @@ public class OpeningMenu : MonoBehaviour
     public void DeactivateMenu()
     {
         openingMenuUI.SetActive(false);
+        helpUI.SetActive(false);
         Time.timeScale = 1f;
     }
     public void LoadMenu()
