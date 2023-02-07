@@ -14,6 +14,7 @@ public class SacrificeController : MonoBehaviour
     [SerializeField] private Transform dialogueBoxParent;
     [SerializeField] private Sprite monke_sprite;
     [SerializeField] private BloodParticle followerBlood;
+    [SerializeField] private GameObject MobileUI;
     private Image dialogue_avatar;
     private TMP_Text name_text;
     private TMP_Text message_text;
@@ -41,7 +42,6 @@ public class SacrificeController : MonoBehaviour
         name_text = dialogueBoxParent.GetChild(0).Find("Name").gameObject.GetComponent<TMP_Text>();
         message_text = dialogueBoxParent.GetChild(0).Find("Message").gameObject.GetComponent<TMP_Text>();
     }
-    
     public void SelectSacrifice(SacrificeSlot sacrificeSlot)
     {
         
@@ -62,6 +62,7 @@ public class SacrificeController : MonoBehaviour
             //gameManager.OnGameStateChanged(GameState.Running);
             StartCoroutine(Dialogue(sacrificed));
         }
+        enableInput();
  
 
     }
@@ -80,6 +81,14 @@ public class SacrificeController : MonoBehaviour
         name_text.text = sacrifice.sacrifice_name;
     }
 
+    void enableInput()
+    {
+        if (Application.isMobilePlatform)
+        {
+            Debug.Log("mobile!");
+            MobileUI.SetActive(true);
+        }
+    }
     // shit code but i am too tired
     IEnumerator Dialogue(Sacrifice sacrifice)
     {

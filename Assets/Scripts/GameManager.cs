@@ -99,11 +99,6 @@ public class GameManager : MonoBehaviour
 
     void HandleRunning()
     {
-        if (Application.isMobilePlatform)
-        {
-            Debug.Log("mobile!");
-            MobileUI.SetActive(true);
-        }
         UnpauseGame();
     }
 

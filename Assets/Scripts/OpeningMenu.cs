@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 using UnityEngine.InputSystem;
 public class OpeningMenu : MonoBehaviour
 {
-    public static bool GameIsPaused = true;
+    public static bool GameIsPaused;
     [SerializeField] private GameObject openingMenuUI;
     [SerializeField] private GameObject helpUI;
     [SerializeField] private GameObject impostor_monke;
@@ -18,6 +18,7 @@ public class OpeningMenu : MonoBehaviour
     private void Awake()
     {
         playerControls = new PlayerControls();
+        GameIsPaused = true;
     }
 
 
@@ -42,6 +43,7 @@ public class OpeningMenu : MonoBehaviour
     public void Pause()
     {
         GameIsPaused = !GameIsPaused;
+        Debug.Log("PAUSING: " + GameIsPaused);
         player.SetActive(true);
         impostor_monke.SetActive(false);
         if (GameIsPaused)
@@ -56,6 +58,11 @@ public class OpeningMenu : MonoBehaviour
 
     void ActivateMenu()
     {
+        if (Application.isMobilePlatform)
+        {
+            Debug.Log("mobile!");
+            MobileUI.SetActive(false);
+        }
         openingMenuUI.SetActive(true);
         Time.timeScale = 0f;
     }
