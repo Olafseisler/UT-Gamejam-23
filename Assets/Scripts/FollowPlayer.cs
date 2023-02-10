@@ -6,7 +6,7 @@ using UnityEngine.AI;
 
 public class FollowPlayer : MonoBehaviour
 {
-    [SerializeField] private GameObject dustCloud;
+    [SerializeField] private DustCloud dustCloud;
     [SerializeField] private float maxDistFromPlayer = 1f;
     public GameObject player;
     public float speed;
@@ -23,10 +23,15 @@ public class FollowPlayer : MonoBehaviour
 
     void UpdateDustCloud()
     {
-        dustCloud.SetActive(player.transform.GetComponent<Rigidbody2D>().velocity.magnitude > 0);
-        dustCloud.transform.localScale = 0.1f * Vector2.one * (Mathf.Abs(Mathf.Sin(8f*Time.time))) + Vector2.one ;
+        if (player.transform.GetComponent<Rigidbody2D>().velocity.magnitude > 0)
+        {
+            dustCloud.ShowCloud();
+        }
+        else
+        {
+            dustCloud.HideCloud();
+        }
     }
-    
     // Update is called once per frame
     void Update()
     {
