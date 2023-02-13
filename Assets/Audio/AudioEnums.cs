@@ -9,6 +9,7 @@ namespace JSAM {
         chase_music,
         credits_song,
         menu_music,
-        sacrifice_music
+        sacrifice_music,
+        sekrit
     }
 }

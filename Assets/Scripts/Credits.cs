@@ -11,6 +11,7 @@ public class Credits : MonoBehaviour
     private InputAction escape;
     private InputAction interact;
     public GameObject fadeOut;
+    private bool secretEnd = false;
 
     private void Awake()
     {
@@ -39,7 +40,16 @@ public class Credits : MonoBehaviour
 
     private void Start()
     {
-        AudioManager.PlayMusic(Music.credits_song);
+        secretEnd = PlayerPrefs.GetInt("SecretEnd", 0) == 1 ? true : false;
+        if (secretEnd)
+        {
+            AudioManager.PlayMusic(Music.sekrit);
+            PlayerPrefs.SetInt("SecretEnd", 0);
+        }
+        else
+        {
+            AudioManager.PlayMusic(Music.credits_song);
+        }
     }
 
     // Start is called before the first frame update
