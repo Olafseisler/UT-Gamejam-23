@@ -52,7 +52,10 @@ public class Credits : MonoBehaviour
                 {
                     child.GetChild(0).gameObject.SetActive(false);
                 }
-                        
+                if (child.name == "trueEnd")
+                {
+                    child.gameObject.SetActive(true);
+                }
             }
         }
         else
