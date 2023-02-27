@@ -20,3 +20,4 @@ MonoBehaviour:
   dialogue:
   - Your son is stuck in the mud back there. Go help him out!
   - Thank you, Sir! You are truly a caring man.
+  multiplier: 1

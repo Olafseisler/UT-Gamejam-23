@@ -20,3 +20,4 @@ MonoBehaviour:
   dialogue:
   - You like fries, right? Go buy some, you deserve it for working so hard!
   - Well, I am hungry.. Thank you!
+  multiplier: 1

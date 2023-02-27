@@ -25,6 +25,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] public HuntPlayer enemyScript;
     [SerializeField] private BloodParticle playerBlood;
     [SerializeField] private GameObject MobileUI;
+    private SacrificeController sacrificeController;
     private GameState _currentState;
     private int _currentMoney = 10000;
     private int previous_song_pos = 0; // in samples
@@ -39,6 +40,7 @@ public class GameManager : MonoBehaviour
             Debug.Log("mobile!");
             MobileUI.SetActive(true);
         }
+        sacrificeController = GetComponent<SacrificeController>();
         EVRef = EventSystem.current; // get the current event system
         OnGameStateChanged(GameState.Start);
     }
@@ -113,8 +115,9 @@ public class GameManager : MonoBehaviour
         AudioManager.StopMusic();
         AudioManager.PlayMusic(Music.sacrifice_music);
         PauseGame();
+        sacrificeController.UpdatePrices();
         sacrificeDialog.SetActive(true);
-
+        
 
         EVRef.SetSelectedGameObject(sacrificeDialog.transform.GetChild(0).transform.GetChild(0)
             .gameObject); // set current selected button
@@ -149,19 +152,18 @@ public class GameManager : MonoBehaviour
         _currentMoney += moneyToAdd;
     }
 
-    public void HandleCommitSacrifice(int moneyToRemove)
+    public float HandleCommitSacrifice(int moneyToRemove, float sacrificeMultiplier)
     {
-        _currentMoney -= moneyToRemove;
+        float to_remove = moneyToRemove * sacrificeMultiplier;
+        _currentMoney -= (int)to_remove;
         if (_currentMoney <= 0)
         {
             OnGameStateChanged(GameState.Lose);
         }
 
         Debug.Log("Saved you this time! Money left:" + _currentMoney);
-        // player.position = player.position + new Vector3(5f, 0, 0);
-
         sacrificeDialog.SetActive(false);
-        //OnGameStateChanged(GameState.Running);
+        return sacrificeMultiplier + 0.5f;
     }
 
     public void handleEnemySlowdown(float slowDown)
@@ -184,8 +186,6 @@ public class GameManager : MonoBehaviour
         Time.timeScale = 1.0f;
         AudioManager.StopMusic();
         AudioManager.PlayMusic(Music.chase_music);
-        //AudioManager.PauseMusic();
         AudioManager.SetMusicPlaybackPosition(previous_song_pos);
-        //AudioManager.ResumeMusic();
     }
 }

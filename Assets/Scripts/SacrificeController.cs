@@ -24,6 +24,22 @@ public class SacrificeController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+
+        // Display the serialized sacrifice objects data in the menu
+        for (var i = 0; i < sacrificeSlotsParent.childCount; i++) // reset all multipliers on game start
+        {
+            if (sacrifices.Length <= i)
+            {
+                break;
+            }
+            sacrifices[i].multiplier = 1;
+        }
+        dialogue_avatar = dialogueBoxParent.GetChild(0).Find("AvatarPicture").gameObject.GetComponent<Image>();
+        name_text = dialogueBoxParent.GetChild(0).Find("Name").gameObject.GetComponent<TMP_Text>();
+        message_text = dialogueBoxParent.GetChild(0).Find("Message").gameObject.GetComponent<TMP_Text>();
+    }
+    public void UpdatePrices()
+    {
         // Display the serialized sacrifice objects data in the menu
         for (var i = 0; i < sacrificeSlotsParent.childCount; i++)
         {
@@ -35,24 +51,16 @@ public class SacrificeController : MonoBehaviour
             sacrificeSlotsParent.GetChild(i).GetComponent<Image>().sprite = sacrifices[i].artwork;
             sacrificeSlotsParent.GetChild(i).GetComponent<Image>().color = Color.white;
             sacrificeSlotsParent.GetChild(i).GetComponent<SacrificeSlot>().SetSacrifice(sacrifices[i]);
-            sacrificeSlotsParent.GetChild(i).Find("CostText").GetComponent<TMP_Text>().text = $"${sacrifices[i].cost.ToString()}";
+            sacrificeSlotsParent.GetChild(i).Find("CostText").GetComponent<TMP_Text>().text = $"${(sacrifices[i].cost * sacrifices[i].multiplier).ToString()}";
         }
-
-        dialogue_avatar = dialogueBoxParent.GetChild(0).Find("AvatarPicture").gameObject.GetComponent<Image>();
-        name_text = dialogueBoxParent.GetChild(0).Find("Name").gameObject.GetComponent<TMP_Text>();
-        message_text = dialogueBoxParent.GetChild(0).Find("Message").gameObject.GetComponent<TMP_Text>();
     }
     public void SelectSacrifice(SacrificeSlot sacrificeSlot)
     {
         
         Sacrifice sacrificed = sacrificeSlot.GetSacrifice();
-        if (sacrificed.sacrifice_name.Equals("Nobody"))
-        {
-            gameManager.OnGameStateChanged(GameState.Lose);
-            return;
-        }
+        
         if (sacrificeSlot.GetSacrifice() != null)
-            gameManager.HandleCommitSacrifice(sacrificed.cost);
+            sacrificed.multiplier = gameManager.HandleCommitSacrifice(sacrificed.cost, sacrificed.multiplier);
         selectedSlowDown = sacrificed.slowdown;
         
         if (gameManager.GetMoney() > 0)
@@ -105,6 +113,10 @@ public class SacrificeController : MonoBehaviour
         yield return new WaitForSecondsRealtime(1f);
         dialogueBoxParent.gameObject.SetActive(false);
         gameManager.OnGameStateChanged(GameState.Running);
+        if (sacrifice.sacrifice_name.Equals("Nobody"))
+        {
+            gameManager.OnGameStateChanged(GameState.Lose);
+        }
     }
 
 }

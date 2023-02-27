@@ -20,3 +20,4 @@ MonoBehaviour:
   dialogue:
   - Heh, I can survive on my own.
   - Or can I...?
+  multiplier: 1

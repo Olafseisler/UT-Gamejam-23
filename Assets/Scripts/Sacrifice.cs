@@ -13,4 +13,5 @@ public class Sacrifice : ScriptableObject
     public float slowdown;
     public int power;
     public string[] dialogue;
+    public float multiplier;
 }

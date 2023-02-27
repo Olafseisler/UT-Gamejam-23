@@ -20,3 +20,4 @@ MonoBehaviour:
   dialogue:
   - "You can go stretch your legs some. It\u2019s a great day to work out!"
   - Wow, that sounds great! See you tomorrow, Sir!
+  multiplier: 1
