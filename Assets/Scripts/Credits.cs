@@ -45,10 +45,19 @@ public class Credits : MonoBehaviour
         {
             AudioManager.PlayMusic(Music.sekrit);
             PlayerPrefs.SetInt("SecretEnd", 0);
+
+            foreach (Transform child in transform) // get rid of blood for the "true" ending 
+            {
+                if (child.childCount > 0)
+                {
+                    child.GetChild(0).gameObject.SetActive(false);
+                }
+                        
+            }
         }
         else
         {
-            AudioManager.PlayMusic(Music.credits_song);
+            AudioManager.PlayMusic(Music.credits_song_remaster);
         }
     }
 

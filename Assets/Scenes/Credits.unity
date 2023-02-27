@@ -236,6 +236,7 @@ MonoBehaviour:
   audioFileMusicObjects:
   - {fileID: 11400000, guid: 2299e7b183a4bf94ab114493db376a05, type: 2}
   - {fileID: 11400000, guid: e8705de63b60e9c4b91c303f49c30aca, type: 2}
+  - {fileID: 11400000, guid: 944d616c086a35c4db4d82138223ac7a, type: 2}
   - {fileID: 11400000, guid: 64d818700b2c9a24b9b52db661da8b0f, type: 2}
   - {fileID: 11400000, guid: e8fcf18fe5ae3594e97f8730f52965c6, type: 2}
   - {fileID: 11400000, guid: b2aac55c013e0fb4cb47ef95c152897d, type: 2}
@@ -371,7 +372,7 @@ GameObject:
   - component: {fileID: 397790663}
   - component: {fileID: 397790662}
   m_Layer: 5
-  m_Name: Image (3)
+  m_Name: Giraffe
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -448,7 +449,7 @@ GameObject:
   - component: {fileID: 577075932}
   - component: {fileID: 577075931}
   m_Layer: 5
-  m_Name: Image (4)
+  m_Name: Cat
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -694,7 +695,7 @@ MonoBehaviour:
     Rengoku
     Teien
 
-    nerve_k2works
+    Koji Kusanagi (nerve)
 
 
 
@@ -966,7 +967,7 @@ GameObject:
   - component: {fileID: 1098068629}
   - component: {fileID: 1098068628}
   m_Layer: 5
-  m_Name: Image (1)
+  m_Name: Monke
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1119,7 +1120,7 @@ GameObject:
   - component: {fileID: 1243398757}
   - component: {fileID: 1243398756}
   m_Layer: 5
-  m_Name: Image (1)
+  m_Name: Panda
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1286,7 +1287,7 @@ GameObject:
   - component: {fileID: 1310605454}
   - component: {fileID: 1310605453}
   m_Layer: 5
-  m_Name: Image (2)
+  m_Name: Frog
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2098,7 +2099,7 @@ GameObject:
   - component: {fileID: 1818582784}
   - component: {fileID: 1818582783}
   m_Layer: 5
-  m_Name: Image (1)
+  m_Name: Umineko
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2336,7 +2337,7 @@ GameObject:
   - component: {fileID: 2076611052}
   - component: {fileID: 2076611051}
   m_Layer: 5
-  m_Name: Image
+  m_Name: Elephant
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
