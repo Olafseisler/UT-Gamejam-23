@@ -1,5 +1,4 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using JSAM;
@@ -9,11 +8,8 @@ public class Intro : MonoBehaviour
     [SerializeField] ParticleSystem gold_ps;
     [SerializeField] ParticleSystem cash_ps;
     public GameObject fadeOut;
-    private void Start()
-    {
-        
-    }
-    void OnIntroEnd()
+
+    public void OnIntroEnd()
     {
         StartCoroutine(IntroEnd());
     }

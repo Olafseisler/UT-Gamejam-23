@@ -1,6 +1,4 @@
-using System;
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class HuntPlayer : MonoBehaviour
@@ -13,13 +11,11 @@ public class HuntPlayer : MonoBehaviour
 
     private bool isChasing = true;
     private float timer = 0;
-    private float defaultSpeed;
     
     // Start is called before the first frame update
     void Start()
     {
         timer = Time.time;
-        defaultSpeed = speed;
     }
 
     // Update is called once per frame
@@ -30,8 +26,7 @@ public class HuntPlayer : MonoBehaviour
             return;
         }
             
-        distance = Vector2.Distance(this.transform.position, player.transform.position);
-        Vector2 direction = player.transform.position - this.transform.position;
+        distance = Vector2.Distance(transform.position, player.transform.position);
 
         if (Time.time - timer > 1.0f)
         {
@@ -39,7 +34,7 @@ public class HuntPlayer : MonoBehaviour
             timer = Time.time;
         }
             
-        transform.position = Vector2.MoveTowards(this.transform.position, player.transform.position, speed * Time.deltaTime);
+        transform.position = Vector2.MoveTowards(transform.position, player.transform.position, speed * Time.deltaTime);
     }
 
     public float GetDistanceFromPlayer()
@@ -47,14 +42,14 @@ public class HuntPlayer : MonoBehaviour
         return distance;
     }
 
-    public void slowEnemyDown(float slowDown)
+    public void SlowEnemyDown(float slowDown)
     {
         transform.position = new Vector2(transform.position.x - 2f, transform.position.y);
         speed -= (speed * slowDown / 50.0f);
-        StartCoroutine("haltForSomeTime");
+        StartCoroutine(HaltForSomeTime());
     }
 
-    IEnumerator haltForSomeTime()
+    IEnumerator HaltForSomeTime()
     {
         isChasing = false;
         yield return new WaitForSecondsRealtime(3f);

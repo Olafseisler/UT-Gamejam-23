@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class DustCloud : MonoBehaviour
@@ -7,7 +5,7 @@ public class DustCloud : MonoBehaviour
     SpriteRenderer dustTex;
     float opacity = 0f;
     bool isActive = false;
-    float step = 1f;
+    readonly float step = 1f;
     // Start is called before the first frame update
     void Start()
     {

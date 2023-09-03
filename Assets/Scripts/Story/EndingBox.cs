@@ -1,8 +1,4 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 public class EndingBox : MonoBehaviour
 {
@@ -12,6 +8,5 @@ public class EndingBox : MonoBehaviour
     {
         gameManager.OnGameStateChanged(GameState.Win);
         Debug.Log("Entered win area ");
-        // SceneManager.LoadScene(5);
     }
 }

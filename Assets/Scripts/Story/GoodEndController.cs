@@ -1,5 +1,4 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using JSAM;
@@ -18,11 +17,11 @@ public class GoodEndController : MonoBehaviour
         score = PlayerPrefs.GetInt("Score", 0);
         if (score >= trueEndThreshold)
         {
-            playerGood.gameObject.SetActive(true);
+            playerGood.SetActive(true);
         }
         else
         {
-            playerOK.gameObject.SetActive(true);
+            playerOK.SetActive(true);
         }
         moneyBarText.text = "" + score;
         StartCoroutine(Victory());
@@ -30,7 +29,7 @@ public class GoodEndController : MonoBehaviour
 
     IEnumerator Victory()
     {
-        yield return new WaitForSecondsRealtime(5f);
+        yield return new WaitForSecondsRealtime(4f);
         fadeOut.SetActive(true);
         yield return new WaitForSecondsRealtime(1f);
         AudioManager.StopMusic();

@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.InputSystem;
@@ -58,11 +56,7 @@ public class OpeningMenu : MonoBehaviour
 
     void ActivateMenu()
     {
-        if (Application.isMobilePlatform)
-        {
-            Debug.Log("mobile!");
-            MobileUI.SetActive(false);
-        }
+        MobileUI.SetActive(false);
         openingMenuUI.SetActive(true);
         Time.timeScale = 0f;
     }
@@ -72,11 +66,7 @@ public class OpeningMenu : MonoBehaviour
         openingMenuUI.SetActive(false);
         helpUI.SetActive(false);
         Time.timeScale = 1f;
-        if (Application.isMobilePlatform)
-        {
-            Debug.Log("mobile!");
-            MobileUI.SetActive(true);
-        }
+        MobileUI.SetActive(true);
     }
     public void LoadMenu()
     {

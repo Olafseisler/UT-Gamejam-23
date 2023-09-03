@@ -1,5 +1,4 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.InputSystem;
@@ -40,7 +39,7 @@ public class Credits : MonoBehaviour
 
     private void Start()
     {
-        secretEnd = PlayerPrefs.GetInt("SecretEnd", 0) == 1 ? true : false;
+        secretEnd = PlayerPrefs.GetInt("SecretEnd", 0) == 1;
         if (secretEnd)
         {
             AudioManager.PlayMusic(Music.sekrit);
@@ -73,8 +72,8 @@ public class Credits : MonoBehaviour
     IEnumerator CreditsEnd()
     {
         fadeOut.SetActive(true);
-        AudioManager.FadeMusicOut(5);
-        yield return new WaitForSeconds(6);
+        AudioManager.FadeMusicOut(1);
+        yield return new WaitForSeconds(2);
         SceneManager.LoadScene("MainMenu");
     }
 }

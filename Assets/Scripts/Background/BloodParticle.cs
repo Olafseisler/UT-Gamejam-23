@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using JSAM;
 public class BloodParticle : MonoBehaviour
@@ -9,11 +7,11 @@ public class BloodParticle : MonoBehaviour
     {
         transform.gameObject.SetActive(true);
     }
-    void OnStart()
+    public void OnStart()
     {
         AudioManager.PlaySound(Sounds.death);
     }
-    void OnEnd()
+    public void OnEnd()
     {
         transform.gameObject.SetActive(false);
     }

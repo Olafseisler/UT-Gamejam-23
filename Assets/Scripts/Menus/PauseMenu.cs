@@ -1,9 +1,8 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.InputSystem;
 using UnityEngine.EventSystems;
+using System.Collections;
 
 public class PauseMenu : MonoBehaviour
 {
@@ -21,10 +20,6 @@ public class PauseMenu : MonoBehaviour
         EVRef = EventSystem.current; // get the current event system
     }
 
-    private void Start()
-    {
-        
-    }
     private void OnEnable()
     {
         menu = playerControls.Menu.Escape;
@@ -76,11 +71,7 @@ public class PauseMenu : MonoBehaviour
         {
             exitButton.SetActive(false);
         }
-        if (Application.isMobilePlatform)
-        {
-            Debug.Log("mobile!");
-            MobileUI.SetActive(false);
-        }
+        StartCoroutine(DisableMobileUI());
         EVRef.SetSelectedGameObject(selectedUIElement);   // set current selected button
         pauseMenuUI.SetActive(true);
         Time.timeScale = 0f;
@@ -88,11 +79,7 @@ public class PauseMenu : MonoBehaviour
 
     public void DeactivateMenu()
     {
-        if (Application.isMobilePlatform)
-        {
-            Debug.Log("mobile!");
-            MobileUI.SetActive(true);
-        }
+        MobileUI.SetActive(true);
         pauseMenuUI.SetActive(false);
         Time.timeScale = 1f;
     }
@@ -101,6 +88,11 @@ public class PauseMenu : MonoBehaviour
         Time.timeScale = 1f;
         GameIsPaused = !GameIsPaused;
         SceneManager.LoadScene("MainMenu");
+    }
+    IEnumerator DisableMobileUI()
+    {
+        yield return null;
+        MobileUI.SetActive(false);
     }
 
     public void QuitGame()

@@ -1,8 +1,9 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using JSAM;
 using UnityEngine.UI;
+using UnityEngine.InputSystem;
+
 public class OptionsMenu : MonoBehaviour
 {
     Resolution[] resolutions;
@@ -10,9 +11,13 @@ public class OptionsMenu : MonoBehaviour
     public Slider sfxSlider;
     public Slider musicSlider;
     public Toggle fullscreenToggle;
+    public Button backButton;
     [SerializeField] GameObject resolutionOption;
+    private PlayerControls playerControls;
+    private InputAction settingsBack;
     private void Start()
     {
+        playerControls = new PlayerControls();
         if (Application.platform == RuntimePlatform.WebGLPlayer)
         {
             resolutionOption.SetActive(false);
@@ -23,7 +28,7 @@ public class OptionsMenu : MonoBehaviour
         int currentResolutionIndex = 0;
         for (int i=0; i < resolutions.Length;i++)
         {
-            string option = resolutions[i].width + "x" + resolutions[i].height + " @ " + resolutions[i].refreshRate + "hz";
+            string option = resolutions[i].width + "x" + resolutions[i].height + " @ " + Mathf.Round((float)resolutions[i].refreshRateRatio.value) + "hz";
             options.Add(option);
             if (resolutions[i].width == Screen.width && resolutions[i].height == Screen.height)
             {
@@ -39,6 +44,9 @@ public class OptionsMenu : MonoBehaviour
         {
             fullscreenToggle.isOn = true;
         }
+        settingsBack = playerControls.Menu.MenuBack;
+        settingsBack.Enable();
+        settingsBack.started += OnBack;
     }
     public void SetSFXVolume (float volume)
     {
@@ -61,4 +69,9 @@ public class OptionsMenu : MonoBehaviour
         Resolution resolution = resolutions[resolutionIndex];
         Screen.SetResolution(resolution.width, resolution.height, Screen.fullScreen);
     }
+    private void OnBack(InputAction.CallbackContext context)
+    {
+        backButton.onClick.Invoke();
+    }
+
 }

@@ -1,10 +1,8 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
-using Unity.VisualScripting;
-using JSAM;
+
 public class SacrificeController : MonoBehaviour
 {
     [SerializeField] private GameManager gameManager;
@@ -51,7 +49,7 @@ public class SacrificeController : MonoBehaviour
             sacrificeSlotsParent.GetChild(i).GetComponent<Image>().sprite = sacrifices[i].artwork;
             sacrificeSlotsParent.GetChild(i).GetComponent<Image>().color = Color.white;
             sacrificeSlotsParent.GetChild(i).GetComponent<SacrificeSlot>().SetSacrifice(sacrifices[i]);
-            sacrificeSlotsParent.GetChild(i).Find("CostText").GetComponent<TMP_Text>().text = $"${(sacrifices[i].cost * sacrifices[i].multiplier).ToString()}";
+            sacrificeSlotsParent.GetChild(i).Find("CostText").GetComponent<TMP_Text>().text = $"${(sacrifices[i].cost * sacrifices[i].multiplier)}";
         }
     }
     public void SelectSacrifice(SacrificeSlot sacrificeSlot)
@@ -70,44 +68,40 @@ public class SacrificeController : MonoBehaviour
             //gameManager.OnGameStateChanged(GameState.Running);
             StartCoroutine(Dialogue(sacrificed));
         }
-        enableInput();
+        EnableInput();
  
 
     }
 
-    void character_to_monke()
+    void SwitchToProtag()
     {
         dialogue_avatar.sprite = monke_sprite;
         dialogue_avatar.gameObject.transform.GetChild(0).gameObject.SetActive(false);
         name_text.text = "Monkey";
     }
 
-    void character_to_chosen(Sacrifice sacrifice)
+    void SwitchToSacrifice(Sacrifice sacrifice)
     {
         dialogue_avatar.sprite = sacrifice.artwork;
         dialogue_avatar.gameObject.transform.GetChild(0).gameObject.SetActive(false);
         name_text.text = sacrifice.sacrifice_name;
     }
 
-    void enableInput()
+    void EnableInput()
     {
-        if (Application.isMobilePlatform)
-        {
-            Debug.Log("mobile!");
-            MobileUI.SetActive(true);
-        }
+        MobileUI.SetActive(true);
     }
     // shit code but i am too tired
     IEnumerator Dialogue(Sacrifice sacrifice)
     {
-        character_to_monke();
+        SwitchToProtag();
         message_text.text = sacrifice.dialogue[0];;
         yield return new WaitForSecondsRealtime(5f);
-        character_to_chosen(sacrifice);
+        SwitchToSacrifice(sacrifice);
         message_text.text = sacrifice.dialogue[1];
         yield return new WaitForSecondsRealtime(4f);
         dialogue_avatar.gameObject.transform.GetChild(0).gameObject.SetActive(true);
-        gameManager.handleEnemySlowdown(selectedSlowDown);
+        gameManager.HandleEnemySlowdown(selectedSlowDown);
         message_text.text = "RIP IN PEACE";
         followerBlood.ShowBlood();
         yield return new WaitForSecondsRealtime(1f);
