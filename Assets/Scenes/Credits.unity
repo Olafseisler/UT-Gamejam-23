@@ -1417,6 +1417,7 @@ GameObject:
   - component: {fileID: 849718961}
   - component: {fileID: 849718960}
   - component: {fileID: 849718959}
+  - component: {fileID: 849718963}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -1510,6 +1511,21 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!114 &849718963
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 849718958}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 32a677da8418b3e48a3d80c8e73414a6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fadeOut: {fileID: 1875888795}
+  normalCredits: {fileID: 1801976710}
+  secretCredits: {fileID: 1838342715}
 --- !u!1 &971400753
 GameObject:
   m_ObjectHideFlags: 0
@@ -3791,12 +3807,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 1801976710}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 32a677da8418b3e48a3d80c8e73414a6, type: 3}
+  m_Script: {fileID: 11500000, guid: f924ca4904313314ab0f527093b7eb23, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   fadeOut: {fileID: 1875888795}
-  normalCredits: {fileID: 1801976710}
-  secretCredits: {fileID: 1838342715}
 --- !u!1 &1818582781
 GameObject:
   m_ObjectHideFlags: 0
@@ -3953,12 +3967,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 1838342715}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 32a677da8418b3e48a3d80c8e73414a6, type: 3}
+  m_Script: {fileID: 11500000, guid: f924ca4904313314ab0f527093b7eb23, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   fadeOut: {fileID: 1875888795}
-  normalCredits: {fileID: 1801976710}
-  secretCredits: {fileID: 1838342715}
 --- !u!1 &1874111452
 GameObject:
   m_ObjectHideFlags: 0

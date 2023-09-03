@@ -4,7 +4,7 @@ using UnityEngine.SceneManagement;
 using UnityEngine.InputSystem;
 using JSAM;
 
-public class Credits : MonoBehaviour
+public class CreditsManager : MonoBehaviour
 {
     private PlayerControls playerControls;
     private InputAction escape;
@@ -58,7 +58,6 @@ public class Credits : MonoBehaviour
         }
     }
 
-    // Start is called before the first frame update
     public void OnCreditsEnd()
     {
         StartCoroutine(CreditsEnd());

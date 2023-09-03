@@ -6092,6 +6092,7 @@ MonoBehaviour:
   player: {fileID: 1240891755}
   sp_renderer: {fileID: 1972924848}
   MobileUI: {fileID: 1522578284}
+  selectedUIElement: {fileID: 856315425}
 --- !u!114 &1515802046
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6901,7 +6902,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 740339f9ed1b94f1d9acf817e6c4a1a4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fadeOut: {fileID: 0}
+  fadeOut: {fileID: 608743796}
   nextScene: GoodEnd
 --- !u!61 &1658308854
 BoxCollider2D:

@@ -1,6 +1,8 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.InputSystem;
+using UnityEngine.EventSystems;
+
 public class OpeningMenu : MonoBehaviour
 {
     public static bool GameIsPaused;
@@ -9,7 +11,9 @@ public class OpeningMenu : MonoBehaviour
     [SerializeField] private GameObject impostor_monke;
     [SerializeField] private GameObject player;
     [SerializeField] private SpriteRenderer sp_renderer;
-    [SerializeField] private GameObject MobileUI; 
+    [SerializeField] private GameObject MobileUI;
+    public GameObject selectedUIElement;
+    private EventSystem EVRef;
     private PlayerControls playerControls;
     private InputAction menu;
 
@@ -17,6 +21,7 @@ public class OpeningMenu : MonoBehaviour
     {
         playerControls = new PlayerControls();
         GameIsPaused = true;
+        EVRef = EventSystem.current; // get the current event system
     }
 
 
@@ -58,6 +63,7 @@ public class OpeningMenu : MonoBehaviour
     {
         MobileUI.SetActive(false);
         openingMenuUI.SetActive(true);
+        EVRef.SetSelectedGameObject(selectedUIElement);
         Time.timeScale = 0f;
     }
 
