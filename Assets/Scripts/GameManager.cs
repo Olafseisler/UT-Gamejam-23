@@ -25,7 +25,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private GameObject MobileUI;
     private SacrificeController sacrificeController;
     private GameState _currentState;
-    private int _currentMoney = 10000;
+    private int _currentMoney = 15000;
     private int previous_song_pos = 0; // in samples
 
     private EventSystem EVRef;

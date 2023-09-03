@@ -15,10 +15,10 @@ MonoBehaviour:
   sacrifice_name: Panda
   cost: 2000
   artwork: {fileID: 21300000, guid: f092d925ab4de4b5da4d7bfcff764062, type: 3}
-  slowdown: 15
+  slowdown: 18
   power: 30
   dialogue:
-  - Oh no! Someone is tearing down a bamboo forest way over there! You should do
-    something!!
-  - Noooo!! Thank you for telling me. I will go save my home!
+  - Oh no! Someone is tearing down a bamboo forest there! You should go protect your
+    homeland.
+  - Noooo! Thank you for telling me. I will go save my home!
   multiplier: 1

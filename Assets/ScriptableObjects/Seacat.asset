@@ -18,6 +18,7 @@ MonoBehaviour:
   slowdown: 19
   power: 5
   dialogue:
-  - You like fries, right? Go buy some, you deserve it for working so hard!
-  - Well, I am hungry.. Thank you!
+  - "You\u2019ve been working really hard recently. You like fries, right? Go buy
+    some, it\u2019s on me."
+  - "Well, I am hungry.. Thank you, Sir! You\u2019re very kind!"
   multiplier: 1

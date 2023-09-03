@@ -10,6 +10,8 @@ public class Credits : MonoBehaviour
     private InputAction escape;
     private InputAction interact;
     public GameObject fadeOut;
+    public GameObject normalCredits;
+    public GameObject secretCredits;
     private bool secretEnd = false;
 
     private void Awake()
@@ -42,23 +44,16 @@ public class Credits : MonoBehaviour
         secretEnd = PlayerPrefs.GetInt("SecretEnd", 0) == 1;
         if (secretEnd)
         {
+            normalCredits.SetActive(false);
+            secretCredits.SetActive(true);
             AudioManager.PlayMusic(Music.sekrit);
             PlayerPrefs.SetInt("SecretEnd", 0);
 
-            foreach (Transform child in transform) // get rid of blood for the "true" ending 
-            {
-                if (child.childCount > 0)
-                {
-                    child.GetChild(0).gameObject.SetActive(false);
-                }
-                if (child.name == "trueEnd")
-                {
-                    child.gameObject.SetActive(true);
-                }
-            }
         }
         else
         {
+            normalCredits.SetActive(true);
+            secretCredits.SetActive(false);
             AudioManager.PlayMusic(Music.credits_song_remaster);
         }
     }

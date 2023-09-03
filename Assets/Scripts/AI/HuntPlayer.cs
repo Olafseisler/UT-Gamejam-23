@@ -33,7 +33,6 @@ public class HuntPlayer : MonoBehaviour
             speed *= 1.1f;
             timer = Time.time;
         }
-            
         transform.position = Vector2.MoveTowards(transform.position, player.transform.position, speed * Time.deltaTime);
     }
 
@@ -46,6 +45,7 @@ public class HuntPlayer : MonoBehaviour
     {
         transform.position = new Vector2(transform.position.x - 2f, transform.position.y);
         speed -= (speed * slowDown / 50.0f);
+        speed = Mathf.Clamp(speed, 0.5f, 20.0f);
         StartCoroutine(HaltForSomeTime());
     }
 

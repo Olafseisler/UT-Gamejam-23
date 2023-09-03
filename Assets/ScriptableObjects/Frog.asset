@@ -18,6 +18,6 @@ MonoBehaviour:
   slowdown: 10
   power: 10
   dialogue:
-  - "You can go stretch your legs some. It\u2019s a great day to work out!"
+  - "You should go and stretch your legs. It\u2019s a great day to work out!"
   - Wow, that sounds great! See you tomorrow, Sir!
   multiplier: 1

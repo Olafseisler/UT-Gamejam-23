@@ -15,9 +15,10 @@ MonoBehaviour:
   sacrifice_name: Worker
   cost: 500
   artwork: {fileID: 21300000, guid: bd6f9e88c95254e55bb75adeebab6f7b, type: 3}
-  slowdown: 2
+  slowdown: 3
   power: 10
   dialogue:
-  - There is something that you like all the way back there. You should go have fun!
-  - I am grateful and will go now. You are a great man, good Sir.
+  - "You deserve a break. There is something that you\u2019ll like, all the way back
+    there. You should go have fun!"
+  - Wow, thank you, Sir! You are a great man, good Sir!
   multiplier: 1

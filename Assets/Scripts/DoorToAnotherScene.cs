@@ -20,6 +20,7 @@ public class DoorToAnotherScene : MonoBehaviour
 
     IEnumerator DelaySceneLoad(float delay, string scene)
     {
+        fadeOut.SetActive(true);
         AudioManager.FadeMusicOut(delay);
         yield return new WaitForSeconds(delay);
         SceneManager.LoadScene(scene);
