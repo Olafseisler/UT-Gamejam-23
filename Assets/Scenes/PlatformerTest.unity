@@ -5343,7 +5343,7 @@ MonoBehaviour:
   dustCloud: {fileID: 1634943951}
   maxDistFromPlayer: 1
   player: {fileID: 522498726}
-  speed: 10
+  speed: 3.1
   followers:
   - {fileID: 980092139}
   - {fileID: 212888638}

@@ -29,8 +29,7 @@ public class FollowPlayer : MonoBehaviour
             distance = Vector2.Distance(follower.transform.position, toFollow.transform.position);
             Vector2 direction = toFollow.transform.position - follower.transform.position;
             Vector2 hover = new(follower.transform.position.x, follower.transform.position.y + Mathf.Sin(8f * Time.time));
-            follower.transform.position =
-                Vector2.MoveTowards(follower.transform.position, hover, speed * Time.deltaTime/10);
+            follower.transform.position = Vector2.MoveTowards(follower.transform.position, hover, speed * Time.deltaTime/10);
             if (distance > maxDistFromPlayer)
             {
                 follower.transform.position =
