@@ -91,20 +91,42 @@ public class SacrificeController : MonoBehaviour
     {
         MobileUI.SetActive(true);
     }
+
     // shit code but i am too tired
     IEnumerator Dialogue(Sacrifice sacrifice)
     {
+        float elapsedTime = 0f;
         SwitchToProtag();
         message_text.text = sacrifice.dialogue[0];;
-        yield return new WaitForSecondsRealtime(5f);
+        while (elapsedTime < 5f)
+        {
+            elapsedTime += Time.unscaledDeltaTime;
+            if (Input.anyKeyDown) break;
+            else yield return null;
+        }
+        yield return null;
         SwitchToSacrifice(sacrifice);
         message_text.text = sacrifice.dialogue[1];
-        yield return new WaitForSecondsRealtime(4f);
+        elapsedTime = 0f;
+        while (elapsedTime < 4f)
+        {
+            elapsedTime += Time.unscaledDeltaTime;
+            if (Input.anyKeyDown) break;
+            else yield return null;
+        }
+        yield return null;
         dialogue_avatar.gameObject.transform.GetChild(0).gameObject.SetActive(true);
         gameManager.HandleEnemySlowdown(selectedSlowDown);
         message_text.text = "RIP IN PEACE";
         followerBlood.ShowBlood();
-        yield return new WaitForSecondsRealtime(1f);
+        elapsedTime = 0f;
+        while (elapsedTime < 1f)
+        {
+            elapsedTime += Time.unscaledDeltaTime;
+            if (Input.anyKeyDown) break;
+            else yield return null;
+        }
+        yield return null;
         dialogueBoxParent.gameObject.SetActive(false);
         gameManager.OnGameStateChanged(GameState.Running);
         if (sacrifice.sacrifice_name.Equals("Nobody"))
