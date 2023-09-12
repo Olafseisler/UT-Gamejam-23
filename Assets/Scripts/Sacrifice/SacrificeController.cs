@@ -97,7 +97,8 @@ public class SacrificeController : MonoBehaviour
     {
         float elapsedTime = 0f;
         SwitchToProtag();
-        message_text.text = sacrifice.dialogue[0];;
+        message_text.text = sacrifice.dialogue[0];
+        yield return null;
         while (elapsedTime < 5f)
         {
             elapsedTime += Time.unscaledDeltaTime;
