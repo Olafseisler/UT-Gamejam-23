@@ -2445,7 +2445,7 @@ SpriteRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 588744335}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 0
   m_ReceiveShadows: 0
   m_DynamicOccludee: 1
@@ -5936,7 +5936,7 @@ SpriteRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1453567052}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 0
   m_ReceiveShadows: 0
   m_DynamicOccludee: 1
@@ -5969,7 +5969,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 5
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
   m_Color: {r: 0.18187074, g: 0.6320754, b: 0.25980225, a: 1}
   m_FlipX: 0
@@ -7078,7 +7078,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4248853847448349739, guid: 1a3c78b416d1540e492f15f4fb133b91, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.91
+      value: 0.591
       objectReference: {fileID: 0}
     - target: {fileID: 4248853847448349739, guid: 1a3c78b416d1540e492f15f4fb133b91, type: 3}
       propertyPath: m_LocalPosition.z
