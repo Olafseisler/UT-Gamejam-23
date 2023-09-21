@@ -18,7 +18,7 @@ public class OptionsMenu : MonoBehaviour
     private void Start()
     {
         playerControls = new PlayerControls();
-        if (Application.platform == RuntimePlatform.WebGLPlayer)
+        if (BuildConstants.isWebGL)
         {
             resolutionOption.SetActive(false);
         }

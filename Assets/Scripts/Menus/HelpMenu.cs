@@ -7,7 +7,7 @@ public class HelpMenu : MonoBehaviour
     // Start is called before the first frame update
     void Awake()
     {
-        if (Application.isMobilePlatform)
+        if (BuildConstants.isMobile)
         {
             mobileUI.SetActive(true);
         }

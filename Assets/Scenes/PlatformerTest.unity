@@ -4475,7 +4475,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 11
+  m_SortingOrder: 10
   m_Sprite: {fileID: -1927064642, guid: 0ba34d9c564184823b255c2b6f38437a, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -5344,6 +5344,7 @@ MonoBehaviour:
   maxDistFromPlayer: 1
   player: {fileID: 522498726}
   speed: 3.1
+  hoverSpeed: 10
   followers:
   - {fileID: 980092139}
   - {fileID: 212888638}

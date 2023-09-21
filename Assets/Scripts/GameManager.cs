@@ -78,6 +78,7 @@ public class GameManager : MonoBehaviour
     {
         Debug.Log($"switched game state to start");
         PlayerPrefs.SetInt("Score", 0);
+        PlayerPrefs.SetInt("SecretEnd", 0);
         player.position = startPos.position;
         AudioManager.PlayMusic(Music.chase_music);
         OnGameStateChanged(GameState.Running);

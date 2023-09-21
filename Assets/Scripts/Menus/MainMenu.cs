@@ -13,7 +13,8 @@ public class MainMenu : MonoBehaviour
         AudioManager.SetMusicVolume(PlayerPrefs.GetFloat("MusicVolume", 0.2f));
         AudioManager.SetSoundVolume(PlayerPrefs.GetFloat("SFXVolume", 0.5f));
         AudioManager.PlayMusic(Music.menu_music);
-        if (Application.platform == RuntimePlatform.WebGLPlayer || Application.isMobilePlatform)
+        PlayerPrefs.SetInt("SecretEnd", 0);
+        if (BuildConstants.isWebGL || BuildConstants.isMobile || BuildConstants.isExpo)
         {
             exitButton.SetActive(false);
         }

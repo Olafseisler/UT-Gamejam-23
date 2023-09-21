@@ -8,6 +8,7 @@ public class FPSDisplay : MonoBehaviour
 
     private IEnumerator Start()
     {
+        if (!BuildConstants.isDebug) yield break;
         GUI.depth = 2;
         while (true)
         {
@@ -18,7 +19,8 @@ public class FPSDisplay : MonoBehaviour
 
     private void OnGUI()
     {
-        Rect location = new Rect(5, 5, 85, 25);
+        if (!BuildConstants.isDebug) return;
+        Rect location = new(5, 5, 85, 25);
         string text = $"FPS: {Mathf.Round(count)}";
         Texture black = Texture2D.linearGrayTexture;
         GUI.DrawTexture(location, black, ScaleMode.StretchToFill);

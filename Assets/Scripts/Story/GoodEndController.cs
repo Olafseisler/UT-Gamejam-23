@@ -14,16 +14,23 @@ public class GoodEndController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        score = PlayerPrefs.GetInt("Score", 0);
-        if (score >= trueEndThreshold)
+        if (PlayerPrefs.GetInt("SecretEnd", 0) == 1)
         {
-            playerGood.SetActive(true);
+            moneyBarText.text = "TRUE END";
         }
         else
         {
-            playerOK.SetActive(true);
+            score = PlayerPrefs.GetInt("Score", 0);
+            if (score >= trueEndThreshold)
+            {
+                playerGood.SetActive(true);
+            }
+            else
+            {
+                playerOK.SetActive(true);
+            }
+            moneyBarText.text = "" + score;
         }
-        moneyBarText.text = "" + score;
         StartCoroutine(Victory());
     }
 

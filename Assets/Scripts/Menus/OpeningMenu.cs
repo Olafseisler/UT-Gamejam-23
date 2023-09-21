@@ -2,6 +2,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.InputSystem;
 using UnityEngine.EventSystems;
+using System.Collections;
 
 public class OpeningMenu : MonoBehaviour
 {
@@ -61,7 +62,7 @@ public class OpeningMenu : MonoBehaviour
 
     void ActivateMenu()
     {
-        MobileUI.SetActive(false);
+        StartCoroutine(DisableMobileUI());
         openingMenuUI.SetActive(true);
         EVRef.SetSelectedGameObject(selectedUIElement);
         Time.timeScale = 0f;
@@ -74,6 +75,12 @@ public class OpeningMenu : MonoBehaviour
         Time.timeScale = 1f;
         MobileUI.SetActive(true);
     }
+    IEnumerator DisableMobileUI()
+    {
+        yield return null;
+        MobileUI.SetActive(false);
+    }
+
     public void LoadMenu()
     {
         Time.timeScale = 1f;
