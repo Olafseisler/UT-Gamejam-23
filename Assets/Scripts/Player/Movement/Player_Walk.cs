@@ -66,6 +66,10 @@ public class Player_Walk : MonoBehaviour
             //Debug.Log("DirectionX: " + context.ReadValue<float>());
             directionX = context.ReadValue<float>();
         }
+        else
+        {
+            directionX = 0;
+        }
     }
 
     // Update is called once per frame

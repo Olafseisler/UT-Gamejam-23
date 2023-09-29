@@ -23,6 +23,8 @@ public class GameManager : MonoBehaviour
     [SerializeField] private HuntPlayer enemyScript;
     [SerializeField] private BloodParticle playerBlood;
     [SerializeField] private GameObject MobileUI;
+    [SerializeField] GameObject tutorialUI;
+    bool isFirstTime;
     private SacrificeController sacrificeController;
     private GameState _currentState;
     private int _currentMoney = 15000;
@@ -33,6 +35,14 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        if (BuildConstants.isExpo)
+        {
+            isFirstTime = true;
+        }
+        else
+        {
+            isFirstTime = PlayerPrefs.GetInt("isFirstTime", 1) == 1;
+        }
         MobileUI.SetActive(true);
         sacrificeController = GetComponent<SacrificeController>();
         EVRef = EventSystem.current; // get the current event system
@@ -98,7 +108,10 @@ public class GameManager : MonoBehaviour
         PauseGame();
         sacrificeController.UpdatePrices();
         sacrificeDialog.SetActive(true);
-        
+        if (isFirstTime && tutorialUI != null)
+        {
+            tutorialUI.SetActive(true);
+        }
 
         EVRef.SetSelectedGameObject(sacrificeDialog.transform.GetChild(0).transform.GetChild(0)
             .gameObject); // set current selected button
@@ -142,6 +155,11 @@ public class GameManager : MonoBehaviour
 
         Debug.Log("Saved you this time! Money left:" + _currentMoney);
         sacrificeDialog.SetActive(false);
+        if (isFirstTime && tutorialUI != null)
+        {
+            PlayerPrefs.SetInt("isFirstTime", 0);
+            tutorialUI.SetActive(false);
+        }
         return sacrificeMultiplier + 0.5f;
     }
 

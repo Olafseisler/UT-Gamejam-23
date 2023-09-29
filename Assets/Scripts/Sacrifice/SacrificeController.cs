@@ -102,7 +102,7 @@ public class SacrificeController : MonoBehaviour
         while (elapsedTime < 5f)
         {
             elapsedTime += Time.unscaledDeltaTime;
-            if (Input.anyKeyDown) break;
+            if (Input.anyKeyDown || (Input.touchCount > 0)) break;
             else yield return null;
         }
         yield return null;
@@ -112,7 +112,7 @@ public class SacrificeController : MonoBehaviour
         while (elapsedTime < 4f)
         {
             elapsedTime += Time.unscaledDeltaTime;
-            if (Input.anyKeyDown) break;
+            if (Input.anyKeyDown || (Input.touchCount > 0)) break;
             else yield return null;
         }
         yield return null;
@@ -121,10 +121,10 @@ public class SacrificeController : MonoBehaviour
         message_text.text = "RIP IN PEACE";
         followerBlood.ShowBlood();
         elapsedTime = 0f;
-        while (elapsedTime < 1f)
+        while (elapsedTime < 3f)
         {
             elapsedTime += Time.unscaledDeltaTime;
-            if (Input.anyKeyDown) break;
+            if (Input.anyKeyDown || (Input.touchCount > 0)) break;
             else yield return null;
         }
         yield return null;
