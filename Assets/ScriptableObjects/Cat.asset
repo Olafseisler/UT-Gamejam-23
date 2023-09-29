@@ -15,10 +15,11 @@ MonoBehaviour:
   sacrifice_name: Cat
   cost: 750
   artwork: {fileID: 21300000, guid: 6188540d64a6c496d80d96c6858461a1, type: 3}
-  slowdown: 5
+  slowdown: 8
   power: 10
   dialogue:
-  - There is a great sale for balls of yarn back there. You should get one for your
-    kittens!
-  - "They will be so happy!! I\u2019ll be right back, dear Sir!"
+  - "There\u2019s a great sale for balls of yarn back there. You should go get one
+    for your kittens."
+  - "Really? A sale? For balls of yarn? My kittens will be so happy! I\u2019ll be
+    right back, dear Sir!"
   multiplier: 1

@@ -1,6 +1,4 @@
 using System.Collections;
-using System.Collections.Generic;
-using System.ComponentModel;
 using UnityEngine;
 using JSAM;
 using UnityEngine.SceneManagement;
@@ -21,13 +19,15 @@ public class GameManager : MonoBehaviour
     [SerializeField] private Transform startPos;
     [SerializeField] private Transform endPos;
     [SerializeField] private GameObject sacrificeDialog;
-    [SerializeField] public GameObject fadeOut;
-    [SerializeField] public HuntPlayer enemyScript;
+    [SerializeField] private GameObject fadeOut;
+    [SerializeField] private HuntPlayer enemyScript;
     [SerializeField] private BloodParticle playerBlood;
     [SerializeField] private GameObject MobileUI;
+    [SerializeField] GameObject tutorialUI;
+    bool isFirstTime;
     private SacrificeController sacrificeController;
     private GameState _currentState;
-    private int _currentMoney = 10000;
+    private int _currentMoney = 15000;
     private int previous_song_pos = 0; // in samples
 
     private EventSystem EVRef;
@@ -35,19 +35,18 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        if (Application.isMobilePlatform)
+        if (BuildConstants.isExpo)
         {
-            Debug.Log("mobile!");
-            MobileUI.SetActive(true);
+            isFirstTime = true;
         }
+        else
+        {
+            isFirstTime = PlayerPrefs.GetInt("isFirstTime", 1) == 1;
+        }
+        MobileUI.SetActive(true);
         sacrificeController = GetComponent<SacrificeController>();
         EVRef = EventSystem.current; // get the current event system
         OnGameStateChanged(GameState.Start);
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
     }
 
     public void OnGameStateChanged(GameState newState)
@@ -61,26 +60,21 @@ public class GameManager : MonoBehaviour
         switch (_currentState)
         {
             case GameState.Start:
-                //TODO: Setup stuff for starting game
                 HandleStart();
                 break;
             case GameState.Sacrifice:
-                //TODO: Open sacrifice animal dialog
                 Debug.Log($"switched game state to sacrifice");
                 HandleSacrifice();
                 break;
             case GameState.Running:
-                //TODO: Handle running animation etc.
                 Debug.Log($"switched game state to running");
                 HandleRunning();
                 break;
             case GameState.Lose:
-                //TODO: Handle loss
                 HandleLoss();
                 Debug.Log($"switched game state to loss");
                 break;
             case GameState.Win:
-                //TODO: Handle win
                 HandleWin();
                 Debug.Log($"switched game state to win");
                 break;
@@ -94,6 +88,7 @@ public class GameManager : MonoBehaviour
     {
         Debug.Log($"switched game state to start");
         PlayerPrefs.SetInt("Score", 0);
+        PlayerPrefs.SetInt("SecretEnd", 0);
         player.position = startPos.position;
         AudioManager.PlayMusic(Music.chase_music);
         OnGameStateChanged(GameState.Running);
@@ -106,18 +101,17 @@ public class GameManager : MonoBehaviour
 
     void HandleSacrifice()
     {
-        if (Application.isMobilePlatform)
-        {
-            Debug.Log("mobile!");
-            MobileUI.SetActive(false);
-        }
+        MobileUI.SetActive(false);
         previous_song_pos = AudioManager.GetMusicPlaybackPosition();
         AudioManager.StopMusic();
         AudioManager.PlayMusic(Music.sacrifice_music);
         PauseGame();
         sacrificeController.UpdatePrices();
         sacrificeDialog.SetActive(true);
-        
+        if (isFirstTime && tutorialUI != null)
+        {
+            tutorialUI.SetActive(true);
+        }
 
         EVRef.SetSelectedGameObject(sacrificeDialog.transform.GetChild(0).transform.GetChild(0)
             .gameObject); // set current selected button
@@ -127,7 +121,6 @@ public class GameManager : MonoBehaviour
     {
         Debug.Log("Your money ran out! Lost game!");
         Time.timeScale = 1.0f;
-        //SceneManager.LoadScene("BadEnd");
         playerBlood.ShowBlood();
         StartCoroutine(DelaySceneLoad(2, "BadEnd"));
     }
@@ -135,7 +128,6 @@ public class GameManager : MonoBehaviour
     void HandleWin()
     {
         PlayerPrefs.SetInt("Score", _currentMoney);
-        //SceneManager.LoadScene(5);
         StartCoroutine(DelaySceneLoad(2, "GoodEnd"));
     }
 
@@ -163,12 +155,17 @@ public class GameManager : MonoBehaviour
 
         Debug.Log("Saved you this time! Money left:" + _currentMoney);
         sacrificeDialog.SetActive(false);
+        if (isFirstTime && tutorialUI != null)
+        {
+            PlayerPrefs.SetInt("isFirstTime", 0);
+            tutorialUI.SetActive(false);
+        }
         return sacrificeMultiplier + 0.5f;
     }
 
-    public void handleEnemySlowdown(float slowDown)
+    public void HandleEnemySlowdown(float slowDown)
     {
-        enemyScript.slowEnemyDown(slowDown);
+        enemyScript.SlowEnemyDown(slowDown);
     }
 
     public int GetMoney()

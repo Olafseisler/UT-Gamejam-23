@@ -1,6 +1,4 @@
-using System;
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using JSAM;
@@ -22,6 +20,7 @@ public class DoorToAnotherScene : MonoBehaviour
 
     IEnumerator DelaySceneLoad(float delay, string scene)
     {
+        fadeOut.SetActive(true);
         AudioManager.FadeMusicOut(delay);
         yield return new WaitForSeconds(delay);
         SceneManager.LoadScene(scene);
