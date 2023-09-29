@@ -7,6 +7,7 @@ public class MainMenu : MonoBehaviour
 {
     public GameObject fadeOut;
     [SerializeField] private GameObject exitButton; // to disable in webgl
+    [SerializeField] private GameObject nomineeBadge; // to enable in expo mode
 
     void Start()
     {
@@ -17,6 +18,11 @@ public class MainMenu : MonoBehaviour
         if (BuildConstants.isWebGL || BuildConstants.isMobile || BuildConstants.isExpo)
         {
             exitButton.SetActive(false);
+        }
+
+        if (BuildConstants.isExpo)
+        {
+            nomineeBadge.SetActive(true);
         }
     }
 
