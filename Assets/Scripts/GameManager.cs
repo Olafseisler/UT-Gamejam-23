@@ -186,4 +186,16 @@ public class GameManager : MonoBehaviour
         AudioManager.PlayMusic(Music.chase_music);
         AudioManager.SetMusicPlaybackPosition(previous_song_pos);
     }
+
+    void Update()
+    {
+        if (BuildConstants.isExpo || BuildConstants.isDebug)
+        {
+            if (Input.GetKeyDown(KeyCode.F5))
+            {
+                Time.timeScale = 1f;
+                SceneManager.LoadScene("MainMenu");
+            }
+        }
+    }
 }
