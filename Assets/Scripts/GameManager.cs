@@ -159,6 +159,7 @@ public class GameManager : MonoBehaviour
         {
             PlayerPrefs.SetInt("isFirstTime", 0);
             tutorialUI.SetActive(false);
+            isFirstTime = false;
         }
         return sacrificeMultiplier + 0.5f;
     }
