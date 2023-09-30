@@ -92,9 +92,18 @@ public class SacrificeController : MonoBehaviour
         MobileUI.SetActive(true);
     }
 
+    bool IsMobileTouch()
+    {
+        if (Input.touchCount > 0)
+        {
+            if (Input.GetTouch(0).phase == TouchPhase.Began) return true;
+        }
+        return false;
+    }
     // shit code but i am too tired
     IEnumerator Dialogue(Sacrifice sacrifice)
     {
+
         float elapsedTime = 0f;
         SwitchToProtag();
         message_text.text = sacrifice.dialogue[0];
@@ -102,7 +111,7 @@ public class SacrificeController : MonoBehaviour
         while (elapsedTime < 5f)
         {
             elapsedTime += Time.unscaledDeltaTime;
-            if (Input.anyKeyDown || (Input.touchCount > 0)) break;
+            if (Input.anyKeyDown || IsMobileTouch()) break;
             else yield return null;
         }
         yield return null;
@@ -112,7 +121,7 @@ public class SacrificeController : MonoBehaviour
         while (elapsedTime < 4f)
         {
             elapsedTime += Time.unscaledDeltaTime;
-            if (Input.anyKeyDown || (Input.touchCount > 0)) break;
+            if (Input.anyKeyDown || IsMobileTouch()) break;
             else yield return null;
         }
         yield return null;
@@ -124,7 +133,7 @@ public class SacrificeController : MonoBehaviour
         while (elapsedTime < 3f)
         {
             elapsedTime += Time.unscaledDeltaTime;
-            if (Input.anyKeyDown || (Input.touchCount > 0)) break;
+            if (Input.anyKeyDown || IsMobileTouch()) break;
             else yield return null;
         }
         yield return null;
