@@ -40,10 +40,7 @@ public class OptionsMenu : MonoBehaviour
         resolutionDropdown.RefreshShownValue();
         sfxSlider.value = AudioManager.GetSoundVolume();
         musicSlider.value = AudioManager.GetMusicVolume();
-        if (Screen.fullScreen)
-        {
-            fullscreenToggle.isOn = true;
-        }
+        fullscreenToggle.isOn = Screen.fullScreen;
         settingsBack = playerControls.Menu.MenuBack;
         settingsBack.Enable();
         settingsBack.started += OnBack;
