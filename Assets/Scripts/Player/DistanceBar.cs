@@ -1,3 +1,4 @@
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 public class DistanceBar : MonoBehaviour
@@ -8,6 +9,7 @@ public class DistanceBar : MonoBehaviour
     Color red = new Color32(235, 30, 30, 255);
     private float distance;
     private Image distanceBar;
+    [SerializeField] private TextMeshProUGUI distanceText;
     // Start is called before the first frame update
     void Start()
     {
@@ -23,10 +25,20 @@ public class DistanceBar : MonoBehaviour
         if (distanceBar.fillAmount > 0.5)
         {
             distanceBar.color = green;
+
+            if (distanceBar.fillAmount >= 1.0)
+            {
+                distanceText.text = "SAFE";
+            }
+            else
+            {
+                distanceText.text = "ALERT";
+            }
         }
         else
         {
             distanceBar.color = red;
+            distanceText.text = "DANGER!";
         }
     }
 }

@@ -2,6 +2,7 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using UnityEngine.InputSystem;
 
 public class SacrificeController : MonoBehaviour
 {
@@ -13,6 +14,7 @@ public class SacrificeController : MonoBehaviour
     [SerializeField] private Sprite monke_sprite;
     [SerializeField] private BloodParticle followerBlood;
     [SerializeField] private GameObject MobileUI;
+    private InputAction interactAction;
     private Image dialogue_avatar;
     private TMP_Text name_text;
     private TMP_Text message_text;
@@ -22,7 +24,8 @@ public class SacrificeController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-
+        var playerControls = new PlayerControls();
+        interactAction = playerControls.Menu.Interact;
         // Display the serialized sacrifice objects data in the menu
         for (var i = 0; i < sacrificeSlotsParent.childCount; i++) // reset all multipliers on game start
         {
@@ -96,14 +99,14 @@ public class SacrificeController : MonoBehaviour
     {
         if (Input.touchCount > 0)
         {
-            if (Input.GetTouch(0).phase == TouchPhase.Began) return true;
+            if (Input.GetTouch(0).phase == UnityEngine.TouchPhase.Began) return true;
         }
         return false;
     }
     // shit code but i am too tired
     IEnumerator Dialogue(Sacrifice sacrifice)
     {
-
+        interactAction.Enable();
         float elapsedTime = 0f;
         SwitchToProtag();
         message_text.text = sacrifice.dialogue[0];
@@ -111,7 +114,7 @@ public class SacrificeController : MonoBehaviour
         while (elapsedTime < 5f)
         {
             elapsedTime += Time.unscaledDeltaTime;
-            if (Input.anyKeyDown || IsMobileTouch()) break;
+            if (interactAction.WasPressedThisFrame() || IsMobileTouch()) break;
             else yield return null;
         }
         yield return null;
@@ -121,7 +124,7 @@ public class SacrificeController : MonoBehaviour
         while (elapsedTime < 4f)
         {
             elapsedTime += Time.unscaledDeltaTime;
-            if (Input.anyKeyDown || IsMobileTouch()) break;
+            if (interactAction.WasPressedThisFrame() || IsMobileTouch()) break;
             else yield return null;
         }
         yield return null;
@@ -133,7 +136,7 @@ public class SacrificeController : MonoBehaviour
         while (elapsedTime < 3f)
         {
             elapsedTime += Time.unscaledDeltaTime;
-            if (Input.anyKeyDown || IsMobileTouch()) break;
+            if (interactAction.WasPressedThisFrame() || IsMobileTouch()) break;
             else yield return null;
         }
         yield return null;
@@ -143,6 +146,7 @@ public class SacrificeController : MonoBehaviour
         {
             gameManager.OnGameStateChanged(GameState.Lose);
         }
+        interactAction.Disable();
     }
 
 }
