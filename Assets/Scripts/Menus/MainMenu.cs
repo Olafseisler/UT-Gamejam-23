@@ -9,10 +9,6 @@ public class MainMenu : MonoBehaviour
     [SerializeField] private GameObject exitButton; // to disable in webgl
     [SerializeField] private GameObject nomineeBadge; // to enable in expo mode
 
-    private void Awake()
-    {
-        if (BuildConstants.isMobile) Application.targetFrameRate = (int)Screen.currentResolution.refreshRateRatio.value; // fix mobile FPS
-    }
     void Start()
     {
         AudioManager.SetMusicVolume(PlayerPrefs.GetFloat("MusicVolume", 0.2f));

@@ -16,6 +16,7 @@ public class Intro : MonoBehaviour
         interactAction = playerControls.Menu.Interact;
         AudioManager.SetMusicVolume(PlayerPrefs.GetFloat("MusicVolume", 0.2f));
         AudioManager.SetSoundVolume(PlayerPrefs.GetFloat("SFXVolume", 0.5f));
+       if (BuildConstants.isMobile) Application.targetFrameRate = (int)Screen.currentResolution.refreshRateRatio.value; // fix mobile FPS
     }
 
     private void OnEnable()
