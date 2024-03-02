@@ -18,7 +18,7 @@ MonoBehaviour:
   neverRepeat: 0
   lastClipIndex: -1
   category: Menu
-  relativeVolume: 1
+  relativeVolume: 0.2
   spatialize: 0
   maxDistance: 0
   priority: 128

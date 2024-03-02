@@ -14,6 +14,8 @@ public class Intro : MonoBehaviour
     {
         var playerControls = new PlayerControls();
         interactAction = playerControls.Menu.Interact;
+        AudioManager.SetMusicVolume(PlayerPrefs.GetFloat("MusicVolume", 0.2f));
+        AudioManager.SetSoundVolume(PlayerPrefs.GetFloat("SFXVolume", 0.5f));
     }
 
     private void OnEnable()
